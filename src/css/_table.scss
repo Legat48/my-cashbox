@@ -1,0 +1,116 @@
+@import '_mixin.scss';
+.table {
+  &__caption {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    color: $color-text-alternate;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: 1em;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  &__caption-sum-currency {
+    font-size: 0.8em;
+  }
+  table {
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-width: 100%;
+    color: $color-btn-text-alternate-two;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: 1em;
+    background-color: $color-background-btn-alternate;
+    word-break: break-all;
+    border-radius: 15px;
+    overflow: hidden;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+  thead {
+    text-transform: uppercase;
+    background-color: $color-translucent-background-two;
+    font-size: 0.8em;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+    th {
+      &:first-child {
+        border-top-left-radius: 15px;
+      }
+      &:last-child {
+        border-top-right-radius: 15px;
+      }
+    }
+
+  }
+  th, td {
+    padding: 15px;
+    text-align: center;
+    @media (max-width: 1024px) {
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+  tr {
+    &:nth-child(2n) {
+      background-color: $color-translucent-background-two;
+    }
+    &:last-child {
+      td {
+        &:first-child {
+          border-bottom-left-radius: 15px;
+        }
+        &:last-child {
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+  }
+  &__td-content, &__th-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      max-width: 200px;
+
+    }
+  }
+  [data-col="table__name"] {
+    width: 50%;
+
+  }
+  [data-col="table__price"] {
+    width: 15%;
+  }
+  [data-col="table__amount"] {
+    width: 10%;
+  }
+  [data-col="table__productSum"] {
+    width: 15%;
+  }
+}
+.formed-orders__card-box_productListCategory {
+  .table {
+    tr {
+      background-color: $color-translucent-background-two;
+      &:nth-child(2n) {
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import '_mixin.scss';
+
+.cashbox {
+  position: relative;
+  display: none;
+  display: grid;
+  grid-template:
+  'header header' calc(100/768*100%)
+  'receipt catalog' calc(568/768*100%)
+  'receipt footer' calc(100/768*100%) / 40% 60%;
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
+  max-width: 800px;
+  max-height: 500px;
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   background-color: rgba(255, 232, 127, 0.301);
+  //   width: 1440px;
+  //   height: 980px;
+  //   max-width: 1440px;
+  //   max-height: 980px;
+  //   z-index: 1100;
+  //   pointer-events: none;
+  // }
+  @media (min-width: 801px) {
+    width: 1024px;
+    max-width: 1024px;
+    height: 675px;
+    max-height: 675px;
+  }
+  @media (min-width: 1025px) {
+    width: 1280px;
+    max-width: 1280px;
+  }
+  @media (min-width: 1281px) {
+    width: 1366px;
+    max-width: 1366px;
+  }
+  @media (min-width: 1367px) {
+    width: 1440px;
+    max-width: 1440px;
+    height: 924px;
+    max-height: 924px;
+  }
+  @media (min-width: 1441px) {
+    width: 1680px;
+    max-width: 1680px;
+  }
+  @media (min-width: 1681px) {
+    width: 1920px;
+    max-width: 1920px;
+    height:980px;
+    max-height: 980px;
+  }
+  background-color: $color-background;
+  &__header {
+    width: 100%;
+    grid-area: header;
+    background-color: $color-background;
+  }
+  &__receipt {
+    width: 100%;
+    grid-area: receipt;
+    background-color: $color-background;
+  }
+  &__catalog {
+    width: 100%;
+    grid-area: catalog;
+    background-color: $color-background;
+  }
+  &__footer {
+    width: 100%;
+    grid-area: footer;
+    background-color: $color-background;
+  }
+}

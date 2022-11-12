@@ -1,0 +1,1315 @@
+
+
+
+2017-11-7, 13:30:57
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+1 matching device(s) found.
+    No driver nodes found for this device.
+1 matching device(s) found.
+USB\VID_1234&PID_0101\6&2AAFF8CD&0&2                        : Removed
+1 device(s) were removed.
+Driver package 'oem37.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-11-7, 13:31:4
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem38.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-11-7, 13:31:7
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem39.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-11-7, 13:31:11
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem40.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-11-7, 13:31:15
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem41.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-11-7, 13:31:18
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem42.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:5:21
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem18.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:5:32
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem19.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:5:40
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem20.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:5:48
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem21.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:5:57
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem22.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:6:4
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem23.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:6:11
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem24.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:11:41
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem18.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:11:47
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem19.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:11:52
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem20.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:11:57
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem21.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:12:4
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem22.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:12:13
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem23.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-1, 12:12:30
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem24.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-8, 12:32:1
+Parameter Error!
+
+
+
+2017-12-13, 14:17:42
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem17.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-13, 14:17:52
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem22.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-13, 14:18:3
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem23.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-13, 14:18:9
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Adding the specified driver package to the machine failed.
+devmger_64.exe failed.
+Scanning for new hardware.
+Scanning completed.
+install Failed!
+
+
+
+2017-12-13, 14:19:36
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Adding the specified driver package to the machine failed.
+devmger_64.exe failed.
+Scanning for new hardware.
+Scanning completed.
+install Failed!
+
+
+
+2017-12-22, 14:41:46
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem28.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:41:50
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem29.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:41:54
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:E:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem30.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:41:57
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem31.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:42:2
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem32.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:42:4
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem33.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-22, 14:42:7
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem34.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:14
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem3.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:15
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem4.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:17
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem5.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:18
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem16.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:18
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem20.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:5:20
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem37.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:12
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem3.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:13
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem4.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:16
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem5.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:17
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem16.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:18
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem20.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2017-12-29, 10:22:19
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem32.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:10:32
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:F:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem54.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:10:42
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:F:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem55.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:10:48
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:F:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem56.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:10:54
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem57.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:11:0
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem58.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:11:5
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem59.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-22, 13:11:10
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem60.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:33
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem20.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:34
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:E:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem21.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:36
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem22.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:38
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem23.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:40
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem24.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-1-24, 16:45:42
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:E:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem25.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:7
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:F:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem43.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:12
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:F:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem44.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:14
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:F:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem45.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:16
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem46.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:19
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem47.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:20
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem48.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 9:40:22
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 F:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:F:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem49.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:31
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem22.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:34
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem23.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:35
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:D:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem24.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:36
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem25.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:37
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem26.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:38
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem27.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-25, 11:26:39
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem28.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:4:54
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem49.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:4:58
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:D:\Driver\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem50.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:5:0
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:D:\Driver\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem51.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:5:3
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem52.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:5:13
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem53.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:5:30
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem54.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2018-5-30, 14:5:34
+build time:May 13 2016 14:31:13
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:D:\Driver\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem55.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:28:50
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_1234&PID_0101
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+install hwid:USB\VID_1234&PID_0101 inf:C:\sc552\USBDriver_V2.00_201709012\data\data0\posvcom.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem39.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:28:53
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_3890&PID_0101
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data1\posusb.inf
+install hwid:USB\VID_3890&PID_0101 inf:C:\sc552\USBDriver_V2.00_201709012\data\data1\posusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem40.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:28:56
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_9908&PID_9030
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+install hwid:USB\VID_9908&PID_9030 inf:C:\sc552\USBDriver_V2.00_201709012\data\data2\paxcdc.inf
+No matching devices found.
+    Name: Устройство с последовательным интерфейсом USB (COM8)
+Driver node #0:
+    Inf file is C:\WINDOWS\INF\usbser.inf
+    Inf section is UsbSerial_Install
+    Driver description is Устройство с последовательным интерфейсом USB
+    Manufacturer name is Корпорация Майкрософт
+    Provider name is Корпорация Майкрософт
+    Driver date is 21.06.2006
+    Driver version is 10.0.18362.1
+    Driver node rank is 16719872
+    Driver node flags are 0014A044
+        Inf is digitally signed
+Driver node #1:
+    Inf file is C:\WINDOWS\INF\usbser.inf
+    Inf section is UsbSerial_Install
+    Driver description is Устройство с последовательным интерфейсом USB
+    Manufacturer name is Корпорация Майкрософт
+    Provider name is Корпорация Майкрософт
+    Driver date is 21.06.2006
+    Driver version is 10.0.18362.1
+    Driver node rank is 16719873
+    Driver node flags are 0010A044
+        Inf is digitally signed
+1 matching device(s) found.
+find 1 inf files
+inf:0 C:\WINDOWS\INF\usbser.inf
+USB\VID_9908&PID_9030\5&10394CA8&0&3                        : Removed
+1 device(s) were removed.
+Deleting the specified driver package from the machine failed
+because it is not an third-party package.
+devmger_64.exe failed.
+Driver package 'oem41.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:29:0
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9201&MI_03
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+install hwid:USB\VID_0327&PID_9201&MI_03 inf:C:\sc552\USBDriver_V2.00_201709012\data\data3\android_winusb.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem42.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:29:3
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0E8D&PID_200A&MI_02
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+install hwid:USB\VID_0E8D&PID_200A&MI_02 inf:C:\sc552\USBDriver_V2.00_201709012\data\data3\cdc-acm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem43.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:29:6
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9205&MI_01
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+install hwid:USB\VID_0327&PID_9205&MI_01 inf:C:\sc552\USBDriver_V2.00_201709012\data\data3\qcmdm.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem44.inf' added.
+Scanning for new hardware.
+Scanning completed.
+
+
+
+2020-2-26, 16:29:9
+build time:May 13 2016 13:55:23
+param1 /install
+param2 USB\VID_0327&PID_9202&MI_01
+param3 C:\sc552\USBDriver_V2.00_201709012\data\data3\qcser.inf
+install hwid:USB\VID_0327&PID_9202&MI_01 inf:C:\sc552\USBDriver_V2.00_201709012\data\data3\qcser.inf
+No matching devices found.
+No matching devices found.
+No devices were removed.
+Driver package 'oem45.inf' added.
+Scanning for new hardware.
+Scanning completed.

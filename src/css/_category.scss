@@ -1,0 +1,60 @@
+@import '_mixin.scss';
+.category {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  min-width: 0;
+  color: $color-text;
+  border-radius: $radius-big-btn;
+  &__btn {
+    width: 7%;
+    height: 57%;
+    transition: all $transition-base;
+    &:active {
+      opacity: 0.7;
+      transform: scale(0.85);
+    }
+  }
+  &__wrap {
+    position: relative;
+    padding-right: 10px;
+    width: calc(900/1152*100%);
+    height: 70%;
+    .simplebar-horizontal {
+      top: -15px;
+    }
+    .simplebar-content {
+      height: 100%;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+  }
+  &__item {
+    flex-shrink: 0;
+    margin-right: 15px;
+    width: calc(100%/4 - 15px);
+    height: 100%;
+    padding: 5px;
+    min-height: 0;
+    border: $border-btn;
+    font-size: $font-size-big-btn;
+    &_first {
+      order: -1;
+    }
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      width: calc(100%/3 - 10px);
+    }
+    font-weight: $font-weight-big-btn;
+    border-radius: $radius-btn-alternate;
+    color: $color-btn-text;
+    background-color: $color-background-btn;
+  }
+}

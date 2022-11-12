@@ -1,0 +1,127 @@
+@import '_mixin.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 1em;
+  color: $color-text;
+  &__burger {
+    position: relative;
+    z-index: 11;
+    width: 40px;
+    height: 40px;
+    max-height: 40px;
+    min-height: 0;
+  }
+  &__dropdown {
+    width: calc(100%/5 - 1%);
+    height: 70%;
+  }
+  &__card {
+    display: flex;
+    align-items: center;
+    width: calc(100%/5 - 1%);
+    height: 70%;
+    font-size: 1em;
+  }
+  &__card-box {
+    display: none;
+  }
+  &__card-input {
+    padding: 7px 12px 7px 15px;
+    border: 3px solid $color-border-alternate;
+    border-right: 0px;
+    width: 80%;
+    height: 100%;
+    border-radius: $radius-btn 0 0 $radius-btn;
+    color: $color-text;
+    background-color: transparent;
+  }
+  &__card-btn {
+    padding: 2%;
+    width: 20%;
+    height: 100%;
+    min-height: 0;
+    border-radius: 0 $radius-btn $radius-btn 0;
+    border-top: 3px solid $color-border-alternate;
+    border-right: 3px solid $color-border-alternate;
+    border-bottom: 3px solid $color-border-alternate;
+    background-color: $color-background-btn-alternate;
+  }
+  &__card-btn path {
+    fill: $color-btn-text-alternate;
+  }
+  &__category {
+    width: calc(100%/5 - 1%);
+    height: 70%;
+    min-height: 0;
+    font-size: $font-size-big-btn;
+    @media (max-width: 800px) {
+    font-size: 14px;
+    }
+    font-weight: $font-weight-big-btn;
+    border-radius: $radius-btn;
+    color: $color-btn-text-alternate;
+    background-color: $color-background-btn-alternate;
+  }
+
+  &__search {
+    padding: 7px 12px 7px 15px;
+    width: calc(100%/5 - 1%);
+    height: 70%;
+    border: 3px solid $color-border-alternate;
+    border-radius: $radius-btn;
+    color: $color-text;
+    background-color: transparent;
+  }
+
+  &__btn-update {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 110px;
+    border-radius: $radius-big-btn;
+    @media (max-width: 800px) {
+      width: 80px;
+    }
+    padding-right: 30;
+    height: 70%;
+    border: none;
+    svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &__btn-update path {
+    fill: $color-text;
+  }
+  &__btn-update-descr {
+    margin-right: 5px;
+    font-size: 1.5rem;
+    @media (max-width: 800px) {
+      font-size: 16px;
+    }
+    color: $color-text;
+    border-radius: $radius-big-btn;
+    transition: opacity .3s, background-color .3s ease;
+    padding: 5px;
+    &_offline {
+      background-color: #D11616;
+      animation-name: blink;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}

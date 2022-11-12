@@ -1,0 +1,49 @@
+@import '_mixin.scss';
+
+.welcome {
+  position: relative;
+  display: flex;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+  height: 500px;
+  max-width: 800px;
+  max-height: 500px;
+  margin: 0 auto;
+  color: $color-text;
+  background-color: $color-background;
+  @media (min-width: 801px) {
+    width: 1024px;
+    max-width: 1024px;
+    height: 668px;
+    max-height: 668px;
+  }
+  @media (min-width: 1025px) {
+    width: 1280px;
+    max-width: 1280px;
+  }
+  @media (min-width: 1281px) {
+    width: 1366px;
+    max-width: 1366px;
+  }
+  @media (min-width: 1367px) {
+    width: 1440px;
+    max-width: 1440px;
+    height: 800px;
+    max-height: 800px;
+  }
+  @media (min-width: 1441px) {
+    width: 1680px;
+    max-width: 1680px;
+    height: 924px;
+    max-height: 924px;
+  }
+  @media (min-width: 1681px) {
+    width: 1920px;
+    max-width: 1920px;
+    height:980px;
+    max-height: 980px;
+  }
+}

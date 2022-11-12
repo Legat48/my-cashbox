@@ -1,0 +1,118 @@
+@import '_mixin.scss';
+
+.subdomain {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  padding-left: 10px;
+  margin-bottom: 25px;
+  color: $color-text;
+  &_active {
+    .subdomain__list {
+      width: 230px;
+      min-width: 230px;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35px;
+    min-width: 35px;
+    overflow: hidden;
+    transition: width .3s;
+    @media screen and (min-width: 1680px) {
+      width: 70px;
+      min-width: 70px;
+    }
+    &_active {
+      width: 230px;
+      min-width: 230px;
+    }
+  }
+  &__title {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-right: 7px;
+    border-radius: 5px;
+    height: 35px;
+    min-height: 35px;
+    padding: 5px;
+    font-size: $font-size-big-btn;
+    @media (max-width: 800px) {
+    font-size: 14px;
+    }
+    font-weight: $font-weight-big-btn;
+    line-height: 8px;
+    color: $color-text;
+    background-color: $color-translucent-background-three;
+    cursor: pointer;
+    transition: opacity $transition-base, transform $transition-base, background-color $transition-base;
+    cursor:pointer;
+    -ms-user-select: none;
+    user-select: none;
+    @media screen and (min-width: 1680px) {
+      width: 70px;
+      min-width: 70px;
+    }
+    &:active {
+      background-color: $color-translucent-background-five;
+      opacity: 0.9;
+      transform: scale(0.85);
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+    &_active {
+      order: -1;
+    }
+  }
+  &__item-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    min-height: 35px;
+    border: $border-btn;
+    border-radius: 5px;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    line-height: 8px;
+    color: $color-text;
+    background-color: $color-translucent-background-three;
+    transition: opacity $transition-base, transform $transition-base, background-color $transition-base;
+    cursor:pointer;
+    -ms-user-select: none;
+    user-select: none;
+    @media screen and (min-width: 1680px) {
+      width: 70px;
+      min-width: 70px;
+      height: 70px;
+      min-height: 70px;
+    }
+    &:active {
+      background-color: $color-translucent-background-five;
+      opacity: 0.9;
+      transform: scale(0.85);
+    }
+  }
+  &__span {
+    display: inline-flex;
+    align-items: center;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    height: 15px;
+  }
+  &__svg {
+    transform: rotate(180deg);
+    path {
+      stroke: currentColor;
+    }
+  }
+}

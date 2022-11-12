@@ -1,0 +1,14 @@
+@import '_mixin.scss';
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-text-alternate;
+  &__btn {
+    color: $color-text-alternate;
+  }
+  &__box-value {
+    display: none;
+  }
+}

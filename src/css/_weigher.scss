@@ -1,0 +1,154 @@
+.weigher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 60px 90px 60px;
+  margin-top: 25px;
+  width: 600px;
+  height: 400px;
+  border-radius: $radius-big-btn;
+  background-color: $color-background-alternate;
+  @media (max-width: 1440px) {
+    padding: 15px 30px 45px 30px;
+    width: 600px;
+    height: 350px;
+    margin-top: 10px;
+
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+  }
+  &__descr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size:$font-size-big-btn-bold;
+    font-weight: $font-weight-big-btn-bold;
+    color: $color-btn-text-alternate-two;
+    width: calc(100% - 50px);
+  }
+  &__title,&__price {
+    display: inline-block;
+    height: calc(100% / 2 - 10%);
+    min-width: 100%;
+    @media (max-width: 1440px) {
+      min-width: 0;
+    }
+  }
+  &__btn-group {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    border-radius: $radius-btn;
+    background-color: $color-background-btn-alternate;
+    box-shadow: $box-shadow-btn;
+    margin-bottom: 60px;
+    @media (max-width: 1440px) {
+      margin-bottom: 30px;
+    }
+  }
+  &__btn-auto,&__btn-manual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    font-size:$font-size-big-btn-bold;
+    font-weight: $font-weight-big-btn-bold;
+    border-radius: $radius-btn;
+    background-color: $color-background-btn-alternate;
+    color: $color-btn-text-alternate;
+    transition: background-color .6s;
+    z-index: 2;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      border-radius: $radius-btn;
+      transition: transform .6s;
+      background-color: $color-background-btn;
+      z-index: 0;
+    }
+  }
+  &__btn-auto {
+    &::before {
+      transform: translateX(+100%);
+    }
+  }
+  &__btn-manual {
+    &::before {
+      transform: translateX(-100%);
+    }
+  }
+  &__btn-auto_active, &__btn-manual_active {
+    background-color: $color-background-btn;
+    color: $color-btn-text;
+    z-index: 5;
+    &::before {
+      transform: translateX(0);
+      opacity: 0;
+      border-radius: $radius-btn;
+      background-color: $color-background-btn;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35%;
+    justify-content: space-between;
+    .weigher__btn-group {
+      margin-bottom: 0;
+    }
+  }
+  &__input {
+    width: 100%;
+    min-height: 70px;
+    border-radius: $radius-btn;
+    color:$color-text-alternate;
+    font-family: 'MyriadPro';
+    font-size: $font-size-big-btn;
+    @media (max-width: 800px) {
+    font-size: 14px;
+    }
+    font-weight: $font-weight-big-btn;
+    padding: 0 30px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: $color-translucent-background;
+    &::placeholder {
+      font-size: $font-size-big-btn;
+    @media (max-width: 800px) {
+    font-size: 14px;
+    }
+      font-weight: $font-weight-big-btn;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+  &__autoInput,&__submit {
+    width: 100%;
+    font-size:$font-size-big-btn-bold;
+    font-weight: $font-weight-big-btn-bold;
+    border-radius: $radius-btn;
+    background-color: $color-background-btn-alternate;
+    color: $color-btn-text-alternate;
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}

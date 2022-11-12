@@ -1,0 +1,124 @@
+@import '_mixin.scss';
+
+.login {
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  color: $color-text;
+  background-color: $color-background;
+  height: 100%;
+  &__form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 400px;
+    margin-top: 20px;
+    @media screen and (min-width: 800px) {
+      margin-top: 40px;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-top: 70px;
+    }
+    @media screen and (min-width: 1440px) {
+      margin-top: 100px;
+    }
+    @media screen and (min-width: 1680px) {
+    }
+  }
+  &__input {
+    position: relative;
+    padding: 7px 12px 7px 30px;
+    margin-bottom: $min-margin;
+    width: 100%;
+    outline: 0;
+    height: $min-height;
+    border: $border-input;
+    border-radius: $radius-btn;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    color: $color-text;
+    background-color: transparent;
+    transition: border-color .2s;
+    &::placeholder {
+      font-family: 'MyriadPro', sans-serif;
+      font-size: $font-size-big-btn;
+      font-weight: $font-weight-big-btn;
+    }
+    &.error {
+      border-color: $color-status-non-work;
+    }
+  }
+  &__btn {
+    width: 100%;
+    height: $min-height;
+    margin: 0 auto;
+    border: $border-btn;
+    border-radius: $radius-btn-alternate;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    color: $color-btn-text;
+    background-color: $color-background-btn;
+    transition: opacity $transition-base, transform $transition-base, background-color $transition-base;
+    cursor:pointer;
+    -ms-user-select: none;
+    user-select: none;
+    &:active {
+      background-color: $color-background;
+      opacity: 0.9;
+      transform: scale(0.85);
+    }
+  }
+  &__pass-input {
+    width: 100%;
+    height: 100%;
+    border:  none;
+    color: $color-text;
+    background-color: $color-translucent-background-three;
+    transition: border-color .2s;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    color: $color-text;
+    &::placeholder {
+      font-family: 'MyriadPro', sans-serif;
+      font-size: $font-size-big-btn;
+      font-weight: $font-weight-big-btn;
+      color: $color-text;
+    }
+  }
+  &__password-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    display: inline-block;
+    width: 40px;
+    height: 50%;
+    background-color: $color-background;
+  }
+  &__errorMessage {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    color: $color-status-non-work;
+  }
+  &__view {
+    display: none;
+    height: 100%;
+    width: 100%;
+    path {
+      fill: $color-border-alternate;
+    }
+    &.active {
+      display: block;
+    }
+  }
+
+}

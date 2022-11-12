@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head id="hta_id">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+  <meta name="viewport" content="width=1920, height=980, user-scalable = no, initial-scale = 1, minimum-scale = 1, maximum-scale = 1">
+  <meta name="cashbox" content="yes">
+  <!-- user-scalable=no -->
+  <title>CoffeeWay Terminal</title>
+  <!-- css -->
+  <link id="style" rel="stylesheet" href="css/style.css">
+  <!-- js -->
+  <script defer src="js/polifil.js"></script>
+  <script defer src="js/logger.js"></script>
+  <link rel="stylesheet" href="resourses/simplebar.css">
+  <script defer src="resourses/md5.js"></script>
+  <script defer src="resourses/gsap.min.js"></script>
+  <script defer src="resourses/simplebar.min.js"></script>
+  <script defer src="resourses/hash.js"></script>
+
+  <script defer src="js/render.js"></script>
+  <script defer src="js/constructor.js"></script>
+  <script defer src="js/globalVariable.js"></script>
+  <script defer src="js/updateTerminal_class.js"></script>
+  <script defer src="js/interface_class.js"></script>
+  <script defer src="js/menu_class.js"></script>
+	<script defer src="js/send_class.js"></script>
+	<script defer src="js/postman_class.js"></script>
+	<script defer src="js/db_class.js"></script>
+  <script defer src="js/dbWork_class.js"></script>
+  <script defer src="js/orderCalc_class.js"></script>
+  <script defer src="js/orderUpdate_class.js"></script>
+  <script defer src="js/orderEntry_class.js"></script>
+  <script defer src="js/orderDel_class.js"></script>
+  <script defer src="js/subfunc_class.js"></script>
+	<script defer src="js/preloader_class.js"></script>
+  <script defer src="js/bank_class.js"></script>
+  <script defer src="js/kkt_class.js"></script>
+  <script defer src="js/setting_class.js"></script>
+  <script defer src="js/weight_class.js"></script>
+  <script defer src="js/checklist_class.js"></script>
+	<script defer src="js/dbMethods_class.js"></script>
+  <!-- дополнительные функции -->
+  <script defer src="js/popup.js"></script>
+  <script defer src="js/modal.js"></script>
+  <script defer src="js/keyboard.js"></script>
+  <script defer src="js/scanner.js"></script>
+  <!-- события интерфейса -->
+  <script defer src="js/search.js"></script>
+  <script defer src="js/eventListener.js"></script>
+  <script defer src="js/authScreen.js"></script>
+  <!-- js со всеми вызовами функций из класса -->
+  <script defer src="js/apiWork.js"></script>
+  <script defer src="js/applying.js"></script>
+  <!-- вход в приложение -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/initApp.js"></script>
+  <script defer src="js/pin.js"></script>
+
+  <script language="javascript">
+    var localServ = 'http://cwsystem.local/' //тестовый сервер
+    var apiServ = 'https://cwflow.apiloc.ru/'//боевой сервер
+    var api = apiServ; //апи который используется
+    var online = "NO";
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var currentDirectory = fso.GetAbsolutePathName(".");
+    // var sbrf = new ActiveXObject ("SBRFSRV.Server"); // объект сбербанка
+    // var oShApp = new ActiveXObject('Shell.Application');
+    // oShApp.shellExecute ('mshta.exe', '"' + self.location.pathname + '" + admin', '', 'runas', 1);
+    var carrentArray = []; // меню
+    var popCarrentArray = []; // популярные товары
+    var popularArray = []; // массив айдишников популярных товаров
+    var scannerObg = {};// меню для сканнера
+    var onlineSystem = true; // онлайн статус
+    var alertsTimeOut; // таймаут для алертов
+    var pointCashbox = '' // номер точки
+    var addressCashbox = '' // адрес точки
+    var suppliesKey = ''; // ключ для заказа поставки
+    var parntnerId = 1; // айди партнера
+    var tokenPoint = '' //токен точки
+    var idworkdayOnline = '' // идентификатор смены онлайн
+    var idworkdayOffline = '' //идентификатор смены офлайн
+    var barista = null;// вывести глобально в момент когда залогинимся
+    var employed = 0 // трудоустроен
+    // var darkTheme = 0 // темная тема, 1-вкл
+    var fiscalPrint = 0 // печатать ли чек
+    var useQRcode = 0; // использовать QRcod
+    var useTerminal = 0; // использовать терминал
+    var useWeight = 0; // использовать весы
+    var useAtol = 0; // использовать атол
+    var troubleAtol = 0; // аварийный режим работы фискальника
+    var troubleAtolCounter = 0; // счетчик перехода в аварийный режим
+    var orderKitchen = 0 // чек кухни
+    var useKeyboard = 1; // использование клавиатуры
+    var useChecklist = 0; // применение чеклистов
+    var errorTerminal = 0;
+    var errorAtol = 0;
+    var firstSlip = 0 //1 банковский слип
+    var secondSlip = 0 //2 банковский слип
+    var tax = 0 // НДС
+    var scales = 'COM1' // порт весов
+    var mailPoint = '' //почта точки
+    var subdomain = 'ru'; // страна кассы
+    var roundPrice = 1 ; //округление до целых
+    //в ходе работы накидываются
+    var currentTable = 1; // Выбор стола
+    var clientInfo;
+    var statusСashback = 0; // 0- карты нет 1-копим 2 списываем
+    var globalCashback = 0; // общий кэшбек
+    var balanceFinal = 0; // остаток или накопление баллов клиента
+    var balanceFinalCert = 0; // остаток или накопление баллов сертификата
+    var promotion_code = '' //промокод
+    var cert; // глобальный объект сертификата
+    var valueSurrender = 0; /*размер сдачи*/
+    var valueStock = 0; /*получено наличных*/
+    var ordersArr = []; // чеки
+    var productArr = []; // товары
+    var saleObg = {} // скидки
+    var currency = 'р'; // валюта
+    var oldShift = undefined; // предидущая смена(нужно для функции синхронизации смен/чеков)
+    var codesearch = ''; // сканер
+    var allCategoryList = {}; // обьект-список категорий {1: 'category 1', 2: 'category 2'}
+    var weekDay;
+    var client; // глобальный объект клиента
+    var orderSumFinal = 0;
+    var idOrderGlobal = undefined // глобальный айди чека
+    var keyboard = null // дилей для медиа
+    var socketServer,accessToken, saleToken; // для хуков QRcode
+    var weigherDelay = null // дилей для инпута в весах
+    var delayPostmanLoyalityOrder = null // дилей postman
+    var delayPostmanServerOrder = null // дилей postman
+    var delayPostmanServerOrderCancel = null // дилей postman
+    var delayPostmanAtolOrder = null // дилей postman
+    var delayPostmanCertificateOrder = null // дилей postman
+    var inputEventListener = null; // событие клика на инпут
+    var terminalVersion = '001';
+    var fileVersionList = {}; //версии файлов на терминале(исходное значение)
+    var fileServList = {}; //версии файлов на сервере(итог)
+    var needForUpdateList = []; // массив файлов которые нужно обновить(разница)
+    var totalTerminalVersion = '';
+    var updatePopup = false; // показывать ли попап "требуется перезапуск после обновления"
+    var apiAnswerDelay = null;
+    var checklistObg = {};
+    var checklistParttime = 0;// начало смены 0 середина смены 1 конец смены 2
+    var tokenQR = ''; //токен точки для оплаты QR кодом
+    var keyQR = ''; // ключ точки для оплаты QR кодом
+    var dbUse = 0;
+    var atolCanPrinted = true; // атол может печатать
+    var tokenQR = '';
+    var keyQR = '';
+    function AddLeftG(str, add, len)
+    {
+      // Потому что в JScript нет функций форматированного вывода
+      str = String(str);
+      while (str.length < len)
+        str = add + str;
+      return str;
+    }
+    const todayGlobal = new Date();
+    let dateStrGlobal = todayGlobal.getFullYear() + '-' + AddLeftG(todayGlobal.getMonth() + 1, '0', 2) + '-' + AddLeftG(todayGlobal.getDate(), '0', 2);
+    let dateStrGlobalTemp = todayGlobal.getFullYear() + '-' + AddLeftG(todayGlobal.getMonth() + 1, '0', 2) + '-' + AddLeftG(todayGlobal.getDate(), '0', 2);
+    var writeOffGlobal = false; //режим списания
+    var writeOffGlobalStat = 0; //режим списания статистика
+    var displayOrderDelay = null;
+    var orderRenderLimit = 50; // лимит на отображение чеков
+    // статистика по кассе за день:
+    var ordersSumStat = 0;
+    var ordersSumCashStat = 0;
+    var ordersSumCashLessStat = 0;
+    var ordersReturnSumStat = 0;
+    var ordersReturnSumCashStat = 0;
+    var ordersReturnSumCashLessStat = 0;
+    var useDisplayOrder = 0; // использование экрана кухни
+    var useToppingMenu = 0; // Экран выбора сиропа
+    var choiceDisplay = 1; // 1 - дефолтный адрес для экрана кухни
+    var displayAddress = ''; // адрес для экрана кухни
+  </script>
+</head>
+
+<body class="body wrapper lock">
+  <div class="alerts"></div>
+
+  <main>
+    <button class="blurElement visually-hidden"></button>
+    <div class="substrate"></div>
+    <div class="declaration declaration_active">
+      <h2 class="declaration__title">
+        Здравствуйте. Важные напоминания. Версия кассы 0.1.3
+      </h2>
+      <ul class="declaration__list">
+        <li class="declaration__item">
+          1.Нельзя запускать старую и новую кассу одновременно(сломает фискальный регистратор).
+        </li>
+        <li class="declaration__item">
+          2. Что бы закрыть кассу нужно закрыть 2!! окна
+        </li>
+        <li class="declaration__item">
+          3.Не забывайте закрывать кассу и сверять чек итога.
+        </li>
+        <li class="declaration__item">
+          4.Рекомендуется проверять работоспособность кассы после запуска(снимите Х отчет к примеру).
+        </li>
+        <li class="declaration__item">
+          5.Если у вас после нажатия на экран не пропадает данное сообщение- - закройте всё и перезапустите.
+        </li>
+      </ul>
+    </div>
+    <div class="checklist">
+      <h2 class="checklist__title">
+        Чек-лист
+      </h2>
+      <button class="checklist__btn btn" id="checklist-collapse">Свернуть</button>
+      <div class="checklist__list">
+        <button class="checklist__item btn">
+          первый пункт
+        </button>
+      </div>
+    </div>
+    <div class="cashbox">
+      <section class="header cashbox__header">
+        <button class="burger header__burger  btn" id="burger" aria-label="открыть или закрыть меню">
+          <span class="burger__line"></span>
+        </button>
+        <div class="menu header__menu">
+          <button class="menu__version btn">
+            V:0.1.3
+          </button>
+          <div class="menu__info info">
+           <div class="info__container" id="info-00">
+            <h2 class="info__caption info-caption">
+              Информация за текущий день()
+            </h2>
+            <div class="daily-plan" id="info-plan-00" style="display: none;">
+              <div class="daily-plan__wrapper">
+                <h3 class="daily-plan__title">План:&nbsp;&nbsp;&nbsp;</h3>
+                <div class="daily-plan__field">
+                  <div class="daily-plan__filler">
+
+                  </div>
+                  <span class="daily-plan__display">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <ul class="info__list">
+              <li class="info__item">
+                <h3 class="info__title">
+                  Выручка:
+                </h3>
+                <p class="info__text all-revenue">
+                  100
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                  Кол-во чеков:
+                </h3>
+                <p class="info__text number-orders">
+                  100
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                  Средний чек:
+                </h3>
+                <p class="info__text average-order">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                  Выручка наличный:
+                </h3>
+                <p class="info__text cash-revenue">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                 Выручка безнал:
+                </h3>
+                <p class="info__text cashLess-revenue">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                 Выручка QR code:
+                </h3>
+                <p class="info__text qr-revenue">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                 Возврат наличный:
+                </h3>
+                <p class="info__text cash-revenue-return">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                  Возврат безнал:
+                </h3>
+                <p class="info__text cashLess-revenue-return">
+                  100р
+                </p>
+              </li>
+              <li class="info__item">
+                <h3 class="info__title">
+                  Возврат QR code:
+                </h3>
+                <p class="info__text qr-return">
+                  100р
+                </p>
+              </li>
+            </ul>
+           </div>
+          </div>
+          <div class="menu__btn-box">
+            <button class="menu__btn btn btn_hover-alternate formedOrdersBtn" id="formedOrdersBtn">
+              <svg class="menu__btn-svg" width="50" height="50" viewbox="0 0 1024 1024" rotate="0">
+                <path fill="#f7cf2d"
+                  d="M758.8 356.6l-174.4 266.8c13.6 16.6 21.6 37.6 21.6 60.6 0 53-43 96-96 96s-96-43-96-96c0-6 0.6-12 1.6-17.8l-115.2-67c-17.2 16.6-40.6 26.8-66.6 26.8-17.2 0-33.2-4.6-47.2-12.4l-122.6 114.8v114.4c0 47 38.4 85.4 85.4 85.4h725.4c47 0 85.4-38.4 85.4-85.4v-425.2l-117.2-77.8c-16.2 12.6-36.6 20.2-58.8 20.2-8.8 0-17.4-1.2-25.4-3.4z M234 434c53 0 96 43 96 96 0 4.2-0.4 8.4-0.8 12.4l120.2 67.2c16.6-13.6 37.6-21.6 60.8-21.6 7.2 0 14.2 0.8 20.8 2.2l174.8-270.8c-11.2-15.6-17.8-34.8-17.8-55.6 0-53 43-96 96-96s96 43 96 96c0 7.8-1 15.4-2.6 22.6l82.6 55.2v-160.2c0-47-38.4-85.4-85.4-85.4h-725.2c-47 0-85.4 38.4-85.4 85.4v458.6l80-76.6c-3.8-10.4-6-21.6-6-33.4 0-53 43-96 96-96z">
+                </path>
+              </svg>
+              <span>Чеки</span>
+            </button>
+            <button class="menu__btn btn_hover-alternate btn" id="setting-btn">
+              <svg class="menu__btn-svg" fill="#f7cf2d" width="50" height="50" viewbox="0 0 1024 1024" rotate="0">
+                <path fill="#f7cf2d"
+                  d="M948.2 796.4l-488.6-460.8c0 0 17.6-115.4 52.4-143.6 35-28.4 96-64 96-64v-64c-64 0-117.6 16.6-193.8 54.6-76 37.8-133.6 95.6-148.8 110.8s-36.2 39-49.4 57.8-10.6 40.2-10.6 40.2l-39.4 34-8-8c-4.6-4.6-12.4-4.6-17 0l-73.6 73.6c-4.6 4.6-4.6 12.4 0 17l118.8 118.8c4.6 4.6 12.4 4.6 17 0l73.6-73.6c4.6-4.6 4.6-12.4 0-17l-20.6-20.6 29.2-28.6c13.6-7.4 50.8-17.8 78.2-10.2l429.8 534.6c16.2 16.4 40.6 16.4 57 0l93.6-94.2c20.6-16 20.6-44.6 4.2-56.8z">
+                </path>
+              </svg>
+              <span>Настройки</span>
+            </button>
+            <button class="menu__btn btn btn_hover-alternate" id="ReportX">
+              <svg class="menu__btn-svg" width="50" height="50" viewbox="0 0 1024 1024" rotate="0">
+                <path fill="#f7cf2d" d="M768 352v-1l-224-223v224z M512 128h-256v768h512v-512h-256z"></path>
+              </svg>
+              <span>Снять X-отчет</span>
+            </button>
+            <button class="menu__btn btn btn_hover-alternate" id="menu-btn-exit">
+              <svg class="menu__btn-svg" viewbox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
+                xml:space="preserve">
+                <path
+                  d="M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M443.8,754.5c-10.6,10.5-24.6,16.4-39.5,16.4s-28.9-5.8-39.5-16.4l-208-208c-21.8-21.8-21.8-57.2,0-79c10.6-10.6,24.6-16.4,39.5-16.4c14.9,0,28.9,5.8,39.5,16.4L394.3,626c3,2.1,6.5,3.2,10.1,3.2c3.6,0,7.1-1.1,10.1-3.2l321.2-321.2c10.6-10.6,24.6-16.4,39.5-16.4s29,5.8,39.5,16.4c21.8,21.8,21.8,57.2,0,79L443.8,754.5z"
+                  fill="#f7cf2d" />
+              </svg>
+              <span>Закрыть смену</span>
+            </button>
+            <button class="menu__btn btn btn_hover-alternate" id="menu-btn-writeoff">
+              <svg class="menu__btn-svg" width="50" height="50" viewbox="0 0 1024 1024" rotate="0">
+                <path fill="#f7cf2d" d="M768 352v-1l-224-223v224z M512 128h-256v768h512v-512h-256z"></path>
+              </svg>
+              <span>Режим списания</span>
+            </button>
+          </div>
+          <!-- <div class="menu__status-box">
+            <div class="menu__status menu__status_error menu__status_terminal">
+              <div>Терминал</div>
+            </div>
+            <div class="menu__status menu__status_error menu__status_atol">
+              <div>Atol</div>
+            </div>
+            <button class="menu__btn btn btn_hover-alternate imperfection">
+            </button>
+            <button class="menu__btn btn menu__btn_exit btn_hover-alternate imperfection">
+            </button>
+          </div> -->
+          <div class="setting__box">
+            <div class="setting__card">
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="terminal-us">
+                  <div class="setting__btn-text">
+                    Использовать терминал
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="terminal-us-toggle" style="display:none" />
+                      <label for="terminal-us-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item ">
+                <button class="setting__btn btn btn_hover-alternate" id="bankReconciliation">
+                  <div class="setting__btn-text">
+                    Сверка итогов(терминал)
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="QRcode">
+                  <div class="setting__btn-text">
+                    Использовать оплату QR&nbsp;кодом
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="QRcode-toggle" style="display:none" />
+                      <label for="first-slip-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item" style="display: none;">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="first-slip">
+                  <div class="setting__btn-text">
+                    Печать банковского слипа
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="first-slip-toggle" style="display:none" />
+                      <label for="first-slip-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item" style="display: none;">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate " id="second-slip">
+                  <div class="setting__btn-text">
+                    Печать второго банковского слипа
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="second-slip-toggle" style="display:none" />
+                      <label for="second-slip-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="keyboard-use">
+                  <div class="setting__btn-text">
+                    Встроенная клавиатура
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="keyboard-toggle" name="keyboard-toggle" style="display:none" />
+                      <label for="keyboard-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="btn-updateTerminal" >
+                  <div class="setting__btn-text">
+                    Переподключить фискальник
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="btn-use-display">
+                  <div class="setting__btn-text">
+                    Экран кухни
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="use-display-toggle" name="use-display-toggle" style="display:none" />
+                      <label for="use-display-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="btn-choiсe-display">
+                  <div class="setting__btn-text">
+                    Стандартное подключение к экрану кухни
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="choiсe-display-toggle" name="choiсe-display-toggle" style="display:none" />
+                      <label for="choiсe-display-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <div class="setting__card">
+              <div class="setting__item" id="mail-point-wrap">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="mail-point-btn">
+                  orders@coffeeway.ru
+                </button>
+                <label class="setting__label">
+                  <input class="setting__input keyboard-input" id="mail-point-input" placeholder="Введите новую почту" required type="email" data-keyboard="setting-mail">
+                  <button class="setting__input-btn btn " id="mail-point-mail-btn" data-kbtn="setting-mail">
+                    <svg viewbox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                       enable-background="new 0 0 1000 1000" xml:space="preserve">
+                      <path
+                        d="M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M443.8,754.5c-10.6,10.5-24.6,16.4-39.5,16.4s-28.9-5.8-39.5-16.4l-208-208c-21.8-21.8-21.8-57.2,0-79c10.6-10.6,24.6-16.4,39.5-16.4c14.9,0,28.9,5.8,39.5,16.4L394.3,626c3,2.1,6.5,3.2,10.1,3.2c3.6,0,7.1-1.1,10.1-3.2l321.2-321.2c10.6-10.6,24.6-16.4,39.5-16.4s29,5.8,39.5,16.4c21.8,21.8,21.8,57.2,0,79L443.8,754.5z"
+                        fill="#fff" />
+                    </svg>
+                  </button>
+                </label>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="atol-us">
+                  <div class="setting__btn-text">
+                    Использовать Атол
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="atol-us-toggle" style="display:none" />
+                      <label for="atol-us-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="trouble-atol">
+                  <div class="setting__btn-text">
+                    Аварйный режим фискальника
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="trouble-atol-toggle" style="display:none" />
+                      <label for="atol-us-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn btn_hover-alternate setting__btn_toggle" id="use-checklist">
+                  <div class="setting__btn-text">
+                    Чеклисты
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="use-checklist-toggle" style="display:none" />
+                      <label for="use-checklist-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="weight-us">
+                  <div class="setting__btn-text">
+                    Использовать весы
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="weight-us-toggle" style="display:none" />
+                      <label for="weight-us-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="order-kitchen">
+                  <div class="setting__btn-text">
+                    Чек кухни
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="order-kitchen-toggle" style="display:none" />
+                      <label for="order-kitchen-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div class="setting__item">
+                <button class="setting__btn btn setting__btn_toggle btn_hover-alternate" id="btn-use-toppings">
+                  <div class="setting__btn-text">
+                    Экран выбора сиропа/топпинга
+                    <div class="toggle">
+                      <input class="toggle__checkbox" type="checkbox" id="use-toppings-toggle" name="use-toppings-toggle" style="display:none" />
+                      <label for="use-toppings-toggle" class="toggle__item"><span></span></label>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="formed-orders__box">
+            <div class="formed-orders__navbar">
+              <ul class="formed-orders__navbar-list">
+                <li class="formed-orders__navbar-item">
+                  <a class="formed-orders__navbar-link formed-orders__navbar-link_active btn" data-navtabkey="1">Чеки прихода</a>
+                </li>
+                <li class="formed-orders__navbar-item">
+                  <a class="formed-orders__navbar-link btn" data-navtabkey="2">Чеки возврата</a>
+                </li>
+                <li class="formed-orders__navbar-item">
+                  <a class="formed-orders__navbar-link btn" data-navtabkey="3">По позициям</a>
+                </li>
+                <li class="formed-orders__navbar-item">
+                  <a class="formed-orders__navbar-link btn" data-navtabkey="4">По категориям</a>
+                </li>
+              </ul>
+              <div class="formed-orders__navbar-btns">
+                <button class="btn btn_navbar formed-orders__navbar-btn formed-orders__navbar-btn_prev">
+                  Предыдущий день
+                </button>
+                <button class="btn btn_navbar formed-orders__navbar-btn formed-orders__navbar-btn_next" disabled="disabled">
+                  Следующий день
+                </button>
+                <button class="btn btn_navbar formed-orders__navbar-btn formed-orders__limit">
+                  Отобразить все чеки
+                </button>
+              </div>
+            </div>
+            <div class="formed-orders__card-box formed-orders__card-box_all formed-orders__tab-item formed-orders__tab-item_active" data-navtab="1">
+              <div class="formed-orders__content-btn formed-orders__content-btn_next btn btn_nav  btn_nav-down">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__content-btn formed-orders__content-btn_prev btn btn_nav btn_nav-up">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__orders-info">
+                <div class="formed-orders__ordersSum">
+                </div>
+                <div class="formed-orders__ordersSum formed-orders__ordersSum_cash">
+
+                </div>
+                <div class="formed-orders__ordersSum formed-orders__ordersSum_noncash">
+
+                </div>
+              </div>
+              <div class="content__wrap scrollbar">
+                <!-- <div class="formed-orders__card">
+                  <div class="formed-orders__card-left">
+                    <div class="formed-orders__card-header">
+                      <div class="formed-orders__header-item">
+                        Чек № 37
+                      </div>
+                      <div class="formed-orders__header-item">
+                        Дата: 11-04-2022
+                      </div>
+                      <div class="formed-orders__header-item">
+                        Время: 15:32:15
+                      </div>
+                    </div>
+                    <div class="formed-orders__card-content">
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">Латте 450мл Латте 450мл</div>
+                        <div class="formed-orders__item-value">1шт</div>
+                      </div>
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">сахар</div>
+                        <div class="formed-orders__item-value">200г</div>
+                      </div>
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">коффе сезонный тыква 450мл</div>
+                        <div class="formed-orders__item-value">1шт</div>
+                      </div>
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">Латте 450мл Латте 450мл</div>
+                        <div class="formed-orders__item-value">1шт</div>
+                      </div>
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">сахар</div>
+                        <div class="formed-orders__item-value">200г</div>
+                      </div>
+                      <div class="formed-orders__item">
+                        <div class="formed-orders__item-text">коффе сезонный тыква 450мл</div>
+                        <div class="formed-orders__item-value">1шт</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="formed-orders__btn-group">
+                    <button class="formed-orders__btn btn" id="orderToPrint">
+                      На&nbsp;печать
+                    </button>
+                    <button class="formed-orders__btn btn" id="orderRefaund">
+                      Возврат
+                    </button>
+                  </div>
+                </div> -->
+
+              </div>
+            </div>
+            <div class="formed-orders__card-box formed-orders__card-box_returned formed-orders__tab-item" data-navtab="2">
+              <div class="formed-orders__content-btn formed-orders__content-btn_next btn btn_nav  btn_nav-down">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__content-btn formed-orders__content-btn_prev btn btn_nav btn_nav-up">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__orders-info">
+                <div class="formed-orders__ordersSum">
+                </div>
+                <div class="formed-orders__ordersSum formed-orders__ordersSum_cash">
+
+                </div>
+                <div class="formed-orders__ordersSum formed-orders__ordersSum_noncash">
+
+                </div>
+              </div>
+              <div class="content__wrap scrollbar">
+              </div>
+            </div>
+            <div class="formed-orders__card-box formed-orders__card-box_productList formed-orders__tab-item" data-navtab="3">
+              <div class="formed-orders__content-btn formed-orders__content-btn_next btn btn_nav  btn_nav-down">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__content-btn formed-orders__content-btn_prev btn btn_nav btn_nav-up">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="content__wrap scrollbar">
+                <div class="table">
+                </div>
+              </div>
+            </div>
+            <div class="formed-orders__card-box formed-orders__card-box_productListCategory formed-orders__tab-item" data-navtab="4">
+              <div class="formed-orders__content-btn formed-orders__content-btn_next btn btn_nav  btn_nav-down">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="formed-orders__content-btn formed-orders__content-btn_prev btn btn_nav btn_nav-up">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div class="content__wrap scrollbar">
+                <div class="table">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Это когда нибудь будет выбором текущего стола -->
+        <!-- <div class="header__dropdown dropdown" id="dropdown-discounts">
+          <button class="dropdown__btn btn dropdown__btn_target" data-dropdown="header-dropdown-one">
+            Скидки
+            <span class="dropdown__icon">
+              <svg class="dropdown__icon-svg" width="12" height="7" viewbox="0 0 12 7" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 1L6 6.00001L0.999997 1" stroke="white" />
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown__content-box dropdown-content-box" id="dropdown-discounts-box" data-dropdown-box="header-dropdown-one">
+            <div class="dropdown__content-btn dropdown__content-btn_next btn btn_nav  btn_nav-down">
+              <span class="btn__nav-icon btn__nav-icon_vert-down">
+              </span>
+            </div>
+            <div class="dropdown__content-btn dropdown__content-btn_prev btn btn_nav btn_nav-up">
+              <span class="btn__nav-icon btn__nav-icon_vert-up"></span>
+            </div>
+            <div class="dropdown__content scrollbar scrollbarVert">
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <button class="dropdown__item-btn btn" id="sale-10%">
+                    скидка 10%
+                  </button>
+                </li>
+                <li class="dropdown__item">
+                  <button class="dropdown__item-btn btn" id="sale-20%">
+                    скидка 20%
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <label class="header__card header__card_promocode">
+          <input class="header__card-input keyboard-input keyboard-input_num" id="promocode-input" placeholder="Промо/Сертификат" type="text" data-keyboard="promocode-input">
+          <button class="header__card-btn btn " id="promocode-btn" data-kbtn="promocode-input">
+            <svg viewbox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              enable-background="new 0 0 1000 1000" xml:space="preserve">
+              <path
+                d="M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M443.8,754.5c-10.6,10.5-24.6,16.4-39.5,16.4s-28.9-5.8-39.5-16.4l-208-208c-21.8-21.8-21.8-57.2,0-79c10.6-10.6,24.6-16.4,39.5-16.4c14.9,0,28.9,5.8,39.5,16.4L394.3,626c3,2.1,6.5,3.2,10.1,3.2c3.6,0,7.1-1.1,10.1-3.2l321.2-321.2c10.6-10.6,24.6-16.4,39.5-16.4s29,5.8,39.5,16.4c21.8,21.8,21.8,57.2,0,79L443.8,754.5z"
+                fill="#fff" />
+            </svg>
+          </button>
+          <div class="header__card-box promocode__box">
+            <div class="promocode__info">
+              Скидка:
+            </div>
+            <div class="promocode__value">
+              10%
+            </div>
+          </div>
+          <div class="header__card-box certificate__box">
+            <div class="certificate__info">
+              Сертификат:
+            </div>
+            <div class="certificate__value">
+              10%
+            </div>
+          </div>
+        </label>
+        <label class="header__card header__card_client">
+          <input class="header__card-input keyboard-input keyboard-input_num"  id="client-card-input" placeholder="Карта" type="text" data-keyboard="client-card">
+          <button class="header__card-btn btn " id="client-btn" data-kbtn="client-card">
+            <svg viewbox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             enable-background="new 0 0 1000 1000" xml:space="preserve">
+              <path
+                d="M500,10C229.4,10,10,229.4,10,500c0,270.6,219.4,490,490,490c270.6,0,490-219.4,490-490C990,229.4,770.6,10,500,10z M443.8,754.5c-10.6,10.5-24.6,16.4-39.5,16.4s-28.9-5.8-39.5-16.4l-208-208c-21.8-21.8-21.8-57.2,0-79c10.6-10.6,24.6-16.4,39.5-16.4c14.9,0,28.9,5.8,39.5,16.4L394.3,626c3,2.1,6.5,3.2,10.1,3.2c3.6,0,7.1-1.1,10.1-3.2l321.2-321.2c10.6-10.6,24.6-16.4,39.5-16.4s29,5.8,39.5,16.4c21.8,21.8,21.8,57.2,0,79L443.8,754.5z"
+                fill="#fff" />
+            </svg>
+          </button>
+          <div class="header__card-box client__box client__box_cashback">
+            <button class="client__btn btn btn_hover-alternate" id="client-btn-write-off">
+              Списать
+            </button>
+            <div class="client__cashback">
+              <div class="client__info">
+                Клиент
+              </div>
+              <div class="client__value">
+              </div>
+            </div>
+            <button class="client__btn btn client__btn_right btn_hover-alternate" id="client-btn-accumulate">
+              Накопить
+            </button>
+          </div>
+          <div class="header__card-box client__box client__box_discount">
+            <div class="client__info">
+              Клиент
+            </div>
+            <div class="client__value client__value_discount">
+            </div>
+          </div>
+        </label>
+
+        <button class="header__category btn btn_hover-alternate" id="all-category">
+          Все категории
+        </button>
+        <input class="header__search keyboard-input" id="search-input" placeholder="Поиск" type="text" >
+        <button class="header__btn-update btn">
+          <span class="header__btn-update-descr">
+            Online
+          </span>
+        </button>
+      </section>
+
+      <section class="receipt cashbox__receipt">
+        <ul class="receipt__category-box">
+          <li class="receipt__category receipt__category_one">Товар</li>
+          <li class="receipt__category receipt__category_two">Кол-во</li>
+          <li class="receipt__category receipt__category_three">Цена</li>
+          <li class="receipt__category receipt__category_four">Итого</li>
+        </ul>
+        <div class="receipt__goods-btn receipt__goods-btn_prev btn btn_nav btn_nav-up">
+          <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+              <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+            </svg>
+        </div>
+
+
+        <div class="receipt__goods">
+          <div class="receipt__goods-btn receipt__goods-btn_next btn btn_nav btn_nav-down">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+              <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="receipt__wrap scrollbar">
+            <ul class="receipt__list">
+              <!-- <li class="product receipt__item">
+                <button class="product__btn-name">
+                  <span>
+                    Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе
+                  </span>
+                </button>
+                <div class="product__counter counter">
+                  <button class="counter__btn counter__btn_down btn">-</button>
+                  <div class="counter__value"><span>999</span></div>
+                  <button class="counter__btn counter__btn_up btn">+</button>
+                </div>
+                <div class="product__text">
+                  122
+                </div>
+                <div class="product__text product-summ">
+                  12200
+                </div>
+              </li>
+              <li class="product receipt__item">
+                <button class="product__btn-name">
+                  <span>
+                    Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе Кофе
+                  </span>
+                </button>
+                <div class="product__counter counter">
+                  <button class="counter__btn counter__btn_down btn">-</button>
+                  <div class="counter__value"><span>999</span></div>
+                  <button class="counter__btn counter__btn_up btn">+</button>
+                </div>
+                <div class="product__text">
+                  122
+                </div>
+                <div class="product__text product-summ">
+                  12200
+                </div>
+              </li> -->
+            </ul>
+          </div>
+
+        </div>
+        <div class="receipt__interaction interaction">
+          <div class="interaction__top-box">
+            <button class="interaction__btn interaction__btn_QR-code btn btn_hover" id="btn-qr-code">
+              <span class="interaction__btn-span interaction__btn-span_nopay">
+                QR код/NewPay
+              </span>
+              <span class="interaction__btn-span interaction__btn-span_pay">
+                На печать
+              </span>
+              <span class="interaction__btn-span interaction__btn-span_trouble">
+                В аварийный режим
+              </span>
+            </button>
+            <button class="interaction__btn interaction__btn_noncash btn btn_hover" id="btn-noncash">
+              <span class="interaction__btn-span interaction__btn-span_nopay">
+                Безналичные
+              </span>
+              <span class="interaction__btn-span interaction__btn-span_pay">
+                На печать
+              </span>
+              <span class="interaction__btn-span interaction__btn-span_trouble">
+                В аварийный режим
+              </span>
+            </button>
+            <button class="interaction__btn interaction__btn_cash btn btn_hover" id="btn-cash">
+              Наличные
+            </button>
+            <button class="interaction__btn interaction__btn_writeoff btn btn_hover" id="btnWriteoff" style="display:none">
+              Списание
+            </button>
+          </div>
+          <div class="interaction__bot-box">
+            <button class="interaction__btn btn btn_hover" id="clearOrder">
+              Очистить чек
+            </button>
+            <div class="interaction__value-order">
+              <div class="interaction__value-info">
+                К оплате:
+              </div>
+              <div class="interaction__cost-content payment-value" id="valueOrder">
+              </div>
+            </div>
+            <div class="interaction__surrender">
+              <div class="interaction__surrender-info_accept stock-value">
+                Получено:
+              </div>
+              <div class="interaction__surrender-info_value surrender-value">
+                Сдача:
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="surrender surrender_deactiv">
+        <div class="surrender__info">
+          <div class="surrender__info-item surrender__info-item_one">
+            <div class="surrender__info-item-child stock-value">
+            </div>
+            <div class="surrender__info-item-child">
+              К оплате: <span class="payment-value"></span>
+            </div>
+          </div>
+          <div class="surrender__info-item surrender__info-item_one surrender-value">
+            Сдача:
+          </div>
+        </div>
+        <div class="surrender__entry-box">
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            7
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            8
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            9
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            4
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            5
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            6
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            1
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            2
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            3
+          </button>
+          <button class="surrender__btn surrender__btn_del btn btn_hover">
+            Стереть
+          </button>
+          <button class="surrender__btn surrender__btn_denomination btn btn_hover">
+            0
+          </button>
+          <button class="surrender__btn surrender__btn_clear btn btn_hover">
+            Очистить всё
+          </button>
+        </div>
+      </div>
+
+      <section class="catalog cashbox__catalog">
+        <div class="catalog__category category">
+          <div class="category__btn btn_hover category__btn_prev btn btn_nav btn_nav-right">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+          </div>
+
+          <div class="category__wrap scrollbar">
+            <div class="category__list">
+            </div>
+          </div>
+          <div class="category__btn btn_hover category__btn_next btn btn_nav btn_nav-left">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+          </div>
+        </div>
+
+        <div class="catalog__content content">
+          <div class="content__btn btn_hover content__btn_up btn btn_nav btn_nav-up">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+          </div>
+          <div class="content__btn btn_hover content__btn_down btn btn_nav btn_nav-down">
+            <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 1C13.5381 1 0.999999 13.5381 0.999999 29C0.999999 44.4619 13.5381 57 29 57C44.464 57 57 44.4631 57 29C57 13.5369 44.464 1 29 1Z" stroke="white" stroke-width="2"/>
+                  <path d="M42.2676 22.7889C41.3826 21.8297 40.0004 21.7456 39.0282 22.5344L38.7497 22.7972L29.0033 33.4523L19.2503 22.7972C18.3691 21.8338 16.9873 21.7432 16.0119 22.5274L15.7324 22.7889C14.8473 23.7481 14.7641 25.2521 15.4845 26.3138L15.7248 26.618L27.2372 39.2028C28.1212 40.1691 29.508 40.2569 30.4834 39.4664L30.7628 39.2028L42.2752 26.618C43.2446 25.5583 43.2412 23.844 42.2676 22.7889Z" fill="currentColor"/>
+                </svg>
+          </div>
+          <div class="content__wrap scrollbar">
+            <div class="content__list" data-target="category-1">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer cashbox__footer">
+        <button class="footer__btn  btn_hover footer__btn_electronic-order" id="electronic-order">
+          Чек только на почту
+          <div class="toggle">
+            <input class="toggle__checkbox" type="checkbox" id="electronic-order-toggle" style="display:none" />
+            <label for="electronic-order-toggle" class="toggle__item"><span></span></label>
+          </div>
+        </button>
+        <button class="footer__btn  btn_hover" id="last-order">
+          Напечатать последний чек
+        </button>
+        <button class="footer__btn  btn_hover" id="supplies">
+          Заказ поставки
+        </button>
+        <button class="footer__btn  btn_hover" id="reloadMenu" style="display: none;">
+          Обновить меню
+        </button>
+        <button class="footer__btn  btn_hover btn_reminder" id="checklist-expand">
+          Чек-лист
+        </button>
+        <button class="footer__btn footer__btn_notice btn imperfection">
+          <svg width="16" height="16" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path fill="#ffffff" d="M6 14h4c0 0 0.1 2-2 2s-2-2-2-2z"></path>
+            <path fill="#ffffff"
+              d="M12.7 11.4c-0.5-0.2-0.7-0.7-0.7-1.2v-5.2c0 0-0.2-2.4-3-2.9v-1.1c0 0 0.1-1-1-1s-1 1-1 1v1.1c-2.8 0.5-3 2.9-3 2.9v5.2c0 0.5-0.3 1-0.7 1.2l-1.3 0.6v1h12v-1l-1.3-0.6zM6 4.8v7.2h-2c0.8 0 1-1 1-1v-6c0 0 0-0.8 0.7-1.4 0.7-0.7 1.3-0.6 1.3-0.6s-1 0.7-1 1.8z">
+            </path>
+          </svg>
+        </button>
+      </section>
+    </div>
+    <section class="welcome">
+      <div class="login">
+        <form class="login__form" action="">
+          <div class="subdomain">
+            <h3 class="title subdomain__title">
+              Страна
+              <span class="subdomain__span">
+                <svg class="subdomain__svg" width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 11L1 6l5-5" stroke=""/></svg>
+              </span>
+            </h3>
+            <ul class="subdomain__list">
+              <li class="subdomain__item subdomain__item_active">
+                <span class="subdomain__item-btn btn" id="subdomain-ru">ru</span>
+              </li>
+              <li class="subdomain__item ">
+                <span class="subdomain__item-btn btn" id="subdomain-br">br</span>
+              </li>
+              <li class="subdomain__item">
+                <span class="subdomain__item-btn btn" id="subdomain-kz">kz</span>
+              </li>
+            </ul>
+          </div>
+          <input class="login__input login-input keyboard-input" type="text" placeholder="Логин" data-keyboard="login-input">
+          <div class="login__input">
+            <input class="login__pass-input pass-input keyboard-input" type="password" id="password-input" placeholder="Введите пароль" name="password" data-keyboard="login-input">
+            <a href="#" class="login__password-control">
+              <span class="login__view active">
+                <svg viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+              </span>
+              <span class="login__view login__view_no-view">
+                <svg viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.81 4.36l-1.77 1.78a4 4 0 0 0-4.9 4.9l-2.76 2.75C2.06 12.79.96 11.49.2 10a11 11 0 0 1 12.6-5.64zm3.8 1.85c1.33 1 2.43 2.3 3.2 3.79a11 11 0 0 1-12.62 5.64l1.77-1.78a4 4 0 0 0 4.9-4.9l2.76-2.75zm-.25-3.99l1.42 1.42L3.64 17.78l-1.42-1.42L16.36 2.22z"/></svg>
+              </span>
+            </a>
+          </div>
+          <button class="login__btn btn " data-kbtn="login-input">Войти</button>
+        </form>
+      </div>
+      <div class="welcome__pin pin">
+        <h2 class="pin__title">ПИН-код</h2>
+        <ul class="pin__display">
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+          <li class="pin__item"><span class="pin__item-value">✱</span></li>
+        </ul>
+        <div class="pin__numpad">
+          <button id="num1" class="pin__btn pin__btn_number">
+            1
+          </button>
+          <button id="num2" class="pin__btn pin__btn_number">
+            2
+          </button>
+          <button id="num3" class="pin__btn pin__btn_number">
+            3
+          </button>
+          <button id="num4" class="pin__btn pin__btn_number">
+            4
+          </button>
+          <button id="num5" class="pin__btn pin__btn_number">
+            5
+          </button>
+          <button id="num6" class="pin__btn pin__btn_number">
+            6
+          </button>
+          <button id="num7" class="pin__btn pin__btn_number">
+            7
+          </button>
+          <button id="num8" class="pin__btn pin__btn_number">
+            8
+          </button>
+          <button id="num9" class="pin__btn pin__btn_number">
+            9
+          </button>
+          <button id="numc" class="pin__btn pin__btn_del">
+            <svg width="142" height="142" viewbox="0 0 141.73 141.73" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              style="enable-background:new 0 0 141.73 141.73;" xml:space="preserve">
+              <g>
+                <path fill="#fff" d="M83.27,113.01c-10.89,0-21.79-0.02-32.68,0.01c-4.06,0.01-7.33-1.5-9.9-4.65c-8.14-9.99-16.3-19.96-24.44-29.95
+              c-3.81-4.68-3.81-10.44,0.01-15.13c8.16-10.02,16.35-20.02,24.52-30.04c2.48-3.04,5.66-4.55,9.58-4.55
+              c21.95,0.01,43.89,0,65.84,0.01c7.15,0,12.14,4.98,12.14,12.1c0.01,20.03,0.01,40.06,0,60.09c0,7.12-5,12.09-12.15,12.1
+              C105.21,113.02,94.24,113.01,83.27,113.01z M83.3,105.35c10.9,0,21.79,0,32.69,0c3.2,0,4.69-1.48,4.69-4.68
+              c0-19.88,0-39.75,0-59.63c0-3.19-1.48-4.66-4.7-4.66c-21.75,0-43.5,0.01-65.25-0.02c-1.78,0-3.11,0.59-4.24,1.98
+              c-8,9.85-16.04,19.66-24.06,29.5c-1.86,2.28-1.86,3.78,0.01,6.07c7.99,9.8,16.01,19.59,23.98,29.41c1.15,1.42,2.49,2.06,4.33,2.06
+              C61.59,105.32,72.45,105.35,83.3,105.35z" />
+                <path fill="#fff" d="M86.06,65.61c4.66-4.66,9.06-9.06,13.44-13.47c1.03-1.03,2.21-1.57,3.67-1.28c1.44,0.29,2.44,1.15,2.9,2.55
+              c0.49,1.51,0.12,2.85-0.98,3.96c-3.34,3.37-6.7,6.72-10.06,10.08c-1.1,1.1-2.23,2.17-3.44,3.35c0.36,0.38,0.64,0.69,0.94,0.99
+              c4.17,4.18,8.35,8.35,12.52,12.53c1.14,1.14,1.53,2.51,1,4.06c-0.52,1.5-1.64,2.33-3.2,2.52c-1.36,0.17-2.46-0.4-3.42-1.36
+              c-4.05-4.07-8.12-8.13-12.18-12.19c-0.31-0.31-0.57-0.67-0.95-1.11c-0.41,0.39-0.73,0.67-1.02,0.96
+              c-4.15,4.14-8.29,8.29-12.44,12.44c-1.18,1.18-2.56,1.6-4.15,1.08c-1.41-0.46-2.25-1.48-2.52-2.93c-0.27-1.46,0.31-2.63,1.34-3.65
+              c4.1-4.08,8.18-8.18,12.27-12.27c0.3-0.31,0.6-0.62,0.94-0.99c-0.33-0.36-0.62-0.68-0.92-0.98c-3.98-3.98-7.95-7.96-11.93-11.93
+              c-2.07-2.07-2.29-4.27-0.61-5.98c1.69-1.71,3.94-1.51,5.98,0.53c3.98,3.98,7.96,7.95,11.93,11.94
+              C85.48,64.75,85.7,65.14,86.06,65.61z" />
+              </g>
+            </svg>
+          </button>
+          <button id="num0" class="pin__btn pin__btn_number">
+            0
+          </button>
+          <button id="numl" class="pin__btn pin__btn_reset">
+            <svg width="142" height="142" viewbox="0 0 141.73 141.73" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 141.73 141.73;"
+              xml:space="preserve">
+              <g>
+                <path fill="#fff" d="M70.84,28.54c23.12-0.1,42.24,18.88,42.34,42.02c0.1,23.51-18.75,42.51-42.28,42.63C47.76,113.3,28.59,94.2,28.55,70.98
+                  C28.5,47.6,47.39,28.64,70.84,28.54z M71,36.25c-19.16-0.03-34.7,15.44-34.74,34.61C36.2,90,51.73,105.45,71.06,105.48
+                  c18.77,0.03,34.38-15.56,34.42-34.38C105.52,51.85,90.12,36.29,71,36.25z" />
+                <path fill="#fff" d="M65.55,70.97c-1.4-1.4-2.61-2.6-3.82-3.8c-1.66-1.66-3.33-3.3-4.97-4.97c-1.62-1.66-1.64-4.01-0.07-5.56
+                  c1.54-1.51,3.87-1.49,5.49,0.11c2.65,2.61,5.28,5.26,7.9,7.9c0.23,0.23,0.4,0.52,0.66,0.86c0.38-0.35,0.61-0.57,0.84-0.79
+                  c2.68-2.67,5.34-5.36,8.03-8.02c1.25-1.23,2.9-1.49,4.4-0.78c1.44,0.69,2.31,2.2,2.17,3.82c-0.09,1.04-0.59,1.86-1.32,2.59
+                  c-2.6,2.58-5.18,5.18-7.78,7.77c-0.23,0.23-0.51,0.42-0.83,0.68c0.34,0.35,0.55,0.59,0.78,0.82c2.65,2.66,5.31,5.3,7.96,7.97
+                  c1.08,1.09,1.48,2.38,1.04,3.88c-0.43,1.45-1.42,2.35-2.88,2.68c-1.44,0.32-2.65-0.16-3.68-1.19c-2.61-2.62-5.22-5.23-7.84-7.84
+                  c-0.23-0.23-0.47-0.45-0.76-0.73c-0.27,0.25-0.51,0.46-0.73,0.69c-2.68,2.67-5.33,5.37-8.04,8.02c-2.17,2.12-5.61,1.28-6.44-1.55
+                  c-0.46-1.55-0.01-2.88,1.14-4.02c2.62-2.6,5.23-5.22,7.85-7.83C64.88,71.42,65.17,71.25,65.55,70.97z" />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="pin__btn-group">
+          <button class="btn pin__manual-btn pin__logout">Сменить заведение</button>
+          <button class="btn pin__manual-btn pin__exit hidden">Закрыть смену</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modalR" id="modalR">
+    <div class="modalR__wrapper">
+      <div class="modalR__content">
+      </div>
+    </div>
+  </div>
+  <section class="keyboard">
+    <div class="keyboard__wrapper">
+      <div class="keyboard__num">
+        <div class="keyboard__key keyboard__key_num">abc</div>
+        <div class="keyboard__key keyboard__key_7 symbol"><span>7</span></div>
+        <div class="keyboard__key keyboard__key_8 symbol"><span>8</span></div>
+        <div class="keyboard__key keyboard__key_9 symbol"><span>9</span></div>
+        <div class="keyboard__key keyboard__key_4 symbol"><span>4</span></div>
+        <div class="keyboard__key keyboard__key_5 symbol"><span>5</span></div>
+        <div class="keyboard__key keyboard__key_6 symbol"><span>6</span></div>
+        <div class="keyboard__key keyboard__key_1 symbol"><span>1</span></div>
+        <div class="keyboard__key keyboard__key_2 symbol"><span>2</span></div>
+        <div class="keyboard__key keyboard__key_3 symbol"><span>3</span></div>
+        <div class="keyboard__key keyboard__key_sp keyboard__key_enter">enter</div>
+        <div class="keyboard__key keyboard__key_del keyboard__key_delete">del</div>
+        <div class="keyboard__key keyboard__key_0 symbol"><span>0</span></div>
+        <div class="keyboard__key keyboard__key_cl  keyboard__key_clear">clear</div>
+        <div class="keyboard__key keyboard__key_slash symbol"><span>.</span></div>
+        <div class="keyboard__key keyboard__key_star symbol"><span>*</span></div>
+        <div class="keyboard__key keyboard__key_minus symbol"><span>-</span></div>
+        <div class="keyboard__key keyboard__key_plus symbol"><span>+</span></div>
+      </div>
+      <div class="keyboard__row">
+        <div class="keyboard__key symbol"><span>`</span><span>~</span></div>
+        <div class="keyboard__key symbol"><span>1</span><span>!</span></div>
+        <div class="keyboard__key symbol"><span>2</span><span>@</span></div>
+        <div class="keyboard__key symbol"><span>3</span><span>#</span></div>
+        <div class="keyboard__key symbol"><span>4</span><span>$</span></div>
+        <div class="keyboard__key symbol"><span>5</span><span>%</span></div>
+        <div class="keyboard__key symbol"><span>6</span><span>^</span></div>
+        <div class="keyboard__key symbol"><span>7</span><span>&amp;</span></div>
+        <div class="keyboard__key symbol"><span>8</span><span>*</span></div>
+        <div class="keyboard__key symbol"><span>9</span><span>(</span></div>
+        <div class="keyboard__key symbol"><span>0</span><span>)</span></div>
+        <div class="keyboard__key symbol"><span>-</span><span>_</span></div>
+        <div class="keyboard__key symbol"><span>=</span><span>+</span></div>
+        <div class="keyboard__key keyboard__key_delete">delete</div>
+       </div>
+       <div class="keyboard__row">
+        <div class="keyboard__key keyboard__key_translate">ru/eng</div>
+        <div class="keyboard__key letter"><span>й</span><span>q</span></div>
+        <div class="keyboard__key letter"><span>ц</span><span>w</span></div>
+        <div class="keyboard__key letter"><span>у</span><span>e</span></div>
+        <div class="keyboard__key letter"><span>к</span><span>r</span></div>
+        <div class="keyboard__key letter"><span>е</span><span>t</span></div>
+        <div class="keyboard__key letter"><span>н</span><span>y</span></div>
+        <div class="keyboard__key letter"><span>г</span><span>u</span></div>
+        <div class="keyboard__key letter"><span>ш</span><span>i</span></div>
+        <div class="keyboard__key letter"><span>щ</span><span>o</span></div>
+        <div class="keyboard__key letter"><span>з</span><span>p</span></div>
+        <div class="keyboard__key symbol-letter"><span>х</span><span>{</span><span>[</span></div>
+        <div class="keyboard__key symbol-letter"><span>ъ</span><span>}</span><span>]</span></div>
+        <div class="keyboard__key symbol"><span>\</span><span>|</span></div>
+       </div>
+       <div class="keyboard__row">
+        <div class="keyboard__key  keyboard__key_clear">clear</div>
+        <div class="keyboard__key letter"><span>ф</span><span>a</span></div>
+        <div class="keyboard__key letter"><span>ы</span><span>s</span></div>
+        <div class="keyboard__key letter"><span>в</span><span>d</span></div>
+        <div class="keyboard__key letter"><span>а</span><span>f</span></div>
+        <div class="keyboard__key letter"><span>п</span><span>g</span></div>
+        <div class="keyboard__key letter"><span>р</span><span>h</span></div>
+        <div class="keyboard__key letter"><span>о</span><span>j</span></div>
+        <div class="keyboard__key letter"><span>л</span><span>k</span></div>
+        <div class="keyboard__key letter"><span>д</span><span>l</span></div>
+        <div class="keyboard__key symbol-letter"><span>ж</span><span>:</span><span>;</span></div>
+        <div class="keyboard__key symbol-letter"><span>э</span><span>&quot;</span><span>'</span></div>
+        <div class="keyboard__key keyboard__key_capslock">caps lock</div>
+       </div>
+       <div class="keyboard__row">
+        <div class="keyboard__key keyboard__key_left-shift">shift</div>
+        <div class="keyboard__key letter"><span>я</span><span>z</span></div>
+        <div class="keyboard__key letter"><span>ч</span><span>x</span></div>
+        <div class="keyboard__key letter"><span>с</span><span>c</span></div>
+        <div class="keyboard__key letter"><span>м</span><span>v</span></div>
+        <div class="keyboard__key letter"><span>и</span><span>b</span></div>
+        <div class="keyboard__key letter"><span>т</span><span>n</span></div>
+        <div class="keyboard__key letter"><span>ь</span><span>m</span></div>
+        <div class="keyboard__key symbol-letter"><span>б</span><span>&lt;</span><span>,</span></div>
+        <div class="keyboard__key symbol-letter"><span>ю</span><span>&gt;</span><span>.</span></div>
+        <div class="keyboard__key symbol"><span>/</span><span>?</span></div>
+        <div class="keyboard__key keyboard__key_enter">enter</div>
+       </div>
+       <div class="keyboard__row">
+        <div class="keyboard__key keyboard__key_num">123</div>
+        <div class="keyboard__key keyboard__key_space">space</div>
+       </div>
+    </div>
+  </section>
+  <div class="iframe-container">
+    <button class="iframe-container__btn">
+      Вернуться в кассу
+    </button>
+    <iframe class="iframe-container__item" src="http://bridge.cwsystem.ru/engine/?class=API&method=makeorderface&key=63574b7dc89ae33b0598b81b49c1c336&pp=1&p=336" title="orderInterface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+@import '_mixin.scss';
+
+.dropdown {
+  position: relative;
+  &-content-box {
+    display: none;
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 12px 10px 12px 36px;
+    width: 100%;
+    height: 100%;
+    border-radius: $radius-btn;
+    font-weight: 400;
+    color: $color-btn-text-alternate;
+    font-family: 'MyriadPro', sans-serif;
+    background-color: $color-background-btn-alternate;
+    @media (max-width: 1280px) {
+      padding: 10px;
+      max-width: 250px;
+    }
+    @include transition;
+    &_select {
+      min-height: 0;
+      color: $color-text-alternate;
+    }
+  }
+  &__icon {
+    display: inline-flex;
+    margin-top: 2px;
+    margin-left: 5px;
+    width: 30px;
+    height: 15px;
+    @include transition;
+    &_active {
+      transform: scale(1, -1);
+    }
+    &_select {
+      width: 20px;
+      height: 10px;
+      margin-top: 1px;
+    }
+  }
+  &__icon-svg {
+    width: 100%;
+    height: 100%;
+    path {
+      @include transition;
+      transition-duration: 0.2s;
+      stroke: $color-btn-text-alternate;
+    }
+    &_select path {
+      stroke: $color-btn-text-alternate-two;
+    }
+  }
+  &__btn::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 30%;
+    right: -3px;
+    bottom: 22%;
+    left: -3px;
+    background-color: transparent;
+    @include transition;
+  }
+  &__btn:focus::after {
+    // background-color: $color-background-btn-hover-alternate;
+  }
+  &__btn:active{
+  }
+  &__btn:hover::after,
+  &__btn:active::after {
+    background-color: transparent;
+  }
+  &__content-box {
+    position: absolute;
+    z-index: 10;
+    padding: 30px;
+    border-radius: $radius-big-btn;
+    width: 100%;
+    height: 450px;
+    background-color: $color-translucent-background;
+    @include transition;
+    &_select {
+      bottom: -7px;
+      left: -77px;
+      height: 266px;
+      width: 230px;
+    }
+  }
+  &__list {
+    height: 100%;
+    overflow: scroll;
+  }
+  &__content {
+    width: 100%;
+    height: 100%;
+  }
+  &__content .btn__nav-icon {
+    width: 63%;
+  }
+  &__item {
+    position: relative;
+    min-height: 80px;
+    border-radius: $radius-big-btn;
+    @include transition;
+    color: $color-btn-text;
+    background-color: $color-background-btn;
+    &_select {
+      min-height: 30px;
+    }
+  }
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  &__content-btn {
+    position: absolute;
+    z-index: 5;
+    top: 5px;
+    left: 5px;
+    width: 70px;
+    height: 70px;
+    &_next {
+      top: auto;
+      bottom: 5px;
+    }
+  }
+  &__item-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px 14px;
+    border-radius: $radius-btn;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    font-size: 0.875em;
+    @media (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+}

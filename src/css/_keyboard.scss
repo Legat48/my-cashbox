@@ -1,0 +1,194 @@
+@import '_mixin.scss';
+.keyboard {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  width: 800px;
+  height: 260px;
+  z-index: 1001;
+  background-color: rgba( 85, 85, 85, 1);
+  transform: translateY(+101%);
+  // transition: transform $transition-base;
+  @media (min-width: 801px) {
+    width: 1024px;
+    height: 350px;
+  }
+  @media (min-width: 1025px) {
+    width: 1280px;
+  }
+  @media (min-width: 1281px) {
+    width: 1366px;
+  }
+  @media (min-width: 1367px) {
+    width: 1440px;
+    height: 480px;
+  }
+  @media (min-width: 1441px) {
+    width: 1681px;
+  }
+  @media (min-width: 1681px) {
+    width: 1920px;
+  }
+  &_num {
+    .keyboard {
+      &__row {
+        display: none;
+      }
+      &__num {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        // gap: 5px 5px;
+        grid-template-areas:
+        "keyboard__key_num keyboard__key_slash keyboard__key_star keyboard__key_minus"
+        "keyboard__key_7 keyboard__key_8 keyboard__key_9 keyboard__key_plus"
+        "keyboard__key_4 keyboard__key_5 keyboard__key_6 keyboard__key_plus"
+        "keyboard__key_1 keyboard__key_2 keyboard__key_3 keyboard__key_sp"
+        "keyboard__key_del keyboard__key_0 keyboard__key_cl keyboard__key_sp";
+        height: 100%;
+      }
+      &__key {
+        padding: 0;
+        width: 100px;
+        margin-left: 3px;
+        margin-right: 3px;
+        height: calc(100% - 6px);
+        align-self: center;
+        justify-self: center;
+        &_num { grid-area: keyboard__key_num; }
+        &_7 { grid-area: keyboard__key_7; }
+        &_8 { grid-area: keyboard__key_8; }
+        &_9 { grid-area: keyboard__key_9; }
+        &_4 { grid-area: keyboard__key_4; }
+        &_5 { grid-area: keyboard__key_5; }
+        &_6 { grid-area: keyboard__key_6; }
+        &_1 { grid-area: keyboard__key_1; }
+        &_2 { grid-area: keyboard__key_2; }
+        &_3 { grid-area: keyboard__key_3; }
+        &_sp { grid-area: keyboard__key_sp; }
+        &_0 { grid-area: keyboard__key_0; }
+        &_del { grid-area: keyboard__key_del; }
+        &_cl { grid-area: keyboard__key_cl; }
+        &_slash { grid-area: keyboard__key_slash; }
+        &_star { grid-area: keyboard__key_star; }
+        &_minus { grid-area: keyboard__key_minus; }
+        &_plus { grid-area: keyboard__key_plus; }
+        &_enter { width: 100px;}
+        }
+      }
+  }
+  &__num {
+    display: none;
+  }
+  &_open {
+    transform: translateY(0);
+  }
+  &_display {
+    display: block;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 100%;
+    width: 95%;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+  &__key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    font-family: 'MyriadPro';
+    font-weight: 400;
+    width: 7%;
+    height: 100%;
+    padding-top: 5x;
+    padding-left: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: $keyboard-bg;
+    color: $keyboard-color;
+    transition: all $transition-base;
+    cursor:pointer;
+    -ms-user-select: none;
+    user-select: none;
+    @media (min-width: 801px) {
+      font-size: 24px;
+    }
+    @media (min-width: 1441px) {
+      font-size: 32px;
+    }
+    &:active {
+      background-color: $color-background;
+      opacity: 0.9;
+      transform: scale(0.85);
+    }
+    &.uppercase {
+      text-transform: uppercase;
+    }
+    span {
+      display: none;
+      transition: all $transition-base;
+      &:first-child {
+        display: block;
+      }
+      &:nth-child(2) {
+        display: block;
+        position:absolute;
+        top: 3px;
+        left: 10px;
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+      }
+    }
+    &_translate,
+    &_delete {
+      width: 7.2%;
+      padding: 0;
+    }
+    &_capslock {
+      width: 12%;
+      padding: 0;
+    }
+    &_clear {
+      width: 10%;
+      padding: 0;
+    }
+    &_left-shift {
+      width: 14%;
+      padding: 0;
+    }
+    &_right-shift {
+      width: 12%;
+      padding: 0;
+    }
+    &_enter {
+      width: 14%;
+      padding: 0;
+    }
+    &_space {
+      width: 100%;
+      padding: 0;
+    }
+    &_num {
+      width: 10%;
+      margin-right: 3px;
+      padding-left: 0;
+    }
+  }
+}

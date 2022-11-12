@@ -1,0 +1,223 @@
+.topping-select {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border-radius: $radius-big-btn;
+  color:$color-text-alternate;
+  background-color: $color-background-btn-alternate;
+  padding: 20px 20px;
+  max-width: 85vw;
+  min-width: 85vw;
+  font-size: 16px;
+  @media (min-width: 1280px) {
+    font-size: 18px;
+  }
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__list-wrap {
+    height: 250px;
+    margin-bottom: 15px;
+    @media (min-width: 1401px) {
+      height: 600px;
+    }
+    @media (max-width: 801px) {
+      height: 290px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    margin:0;
+    padding: 0;
+    padding-top: 25px;
+    text-indent: 0;
+    list-style-type: 0;
+    &_delete {
+      .topping-select {
+        &__delete-wrapper {
+          display: block;
+        }
+        &__item {
+          pointer-events: none;
+        }
+        &__delete-item {
+          pointer-events: all;
+        }
+      }
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 5 - 25px);
+    height: 150px;
+    border-radius: $radius-big-btn;
+    color: $color-text-alternate;
+    background-color: $color-translucent-background;
+    cursor: pointer;
+    &:not(:nth-child(5n)) {
+      margin-right: 25px;
+    }
+    margin-bottom: 10px;
+    @media (max-width: 1440px) {
+      height: 100px;
+    }
+    @media (max-width: 800px) {
+      height: 70px;
+    }
+  }
+  &__btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    @media (min-width: 1280px) {
+    }
+  }
+
+  &__lable {
+    position: relative;
+    font-family: 'MyriadPro', sans-serif;
+    border-radius: $radius-big-btn;
+    color: $color-btn-text;
+    font-size: 20px;
+    padding: 15px;
+    width: 100%;
+    margin-right: 25px;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+    height: 70px;
+    width: 50%;
+    font-size: 20px;
+    font-family: 'MyriadPro', sans-serif;
+    border-radius: $radius-big-btn;
+    color: $color-btn-text;
+    border-radius: $radius-btn;
+    background-color: $color-background-btn;
+    @media (max-width: 1440px) {
+      width: calc(50%)
+    }
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      padding: 21px 0;
+      width: 150px;
+    }
+    @media (max-width: 800px) {
+      min-height: 50px;
+      height: 50px;
+    }
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+    &_toggle {
+      margin-right: 20px;
+      padding: 10px;
+      width: 270px;
+    }
+    &_confirm {
+      position: absolute;
+      top: 50%;
+      right: 166px;
+      width: 150px;
+      transform: translateY(-50%);
+      @media (max-width: 800px) {
+        width: 100px;
+        right: 116px;
+      }
+    }
+    &_delete {
+      position: absolute;
+      top: 50%;
+      right: -5px;
+      width: 150px;
+      transform: translateY(-50%);
+      @media (max-width: 800px) {
+        width: 100px;
+      }
+    }
+
+  }
+
+  &__input {
+    position: relative;
+    padding: 7px 170px 7px 30px;
+    width: calc(100% - 175px);
+    outline: 0;
+    height: $min-height;
+    border: $border-input;
+    border-radius: $radius-btn;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: $font-size-big-btn;
+    font-weight: $font-weight-big-btn;
+    color: $color-text;
+    background-color: transparent;
+    transition: border-color .2s;
+    &::placeholder {
+      font-family: 'MyriadPro', sans-serif;
+      font-size: $font-size-big-btn;
+      font-weight: $font-weight-big-btn;
+      @media (max-width: 1024px) {
+        font-size: 16px;
+      }
+    }
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+    @media (max-width: 800px) {
+      width: calc(100% - 125px);
+      height: 50px;
+    }
+  }
+  &__scroll-btn {
+    position: absolute;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    &_down {
+      bottom: 100px;
+    }
+    &_up {
+      top: 10px;
+    }
+  }
+
+  &__delete-wrapper {
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    display: none;
+  }
+  &__delete-item {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    padding: 0;
+    top:0;
+    font-size: 20px;
+    font-weight: 600;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    color: $color-btn-text;
+    background-color: $color-background-btn;
+  }
+}

@@ -1,0 +1,125 @@
+@import '_mixin.scss';
+
+.interaction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 0px 5px 3px;
+  color: $color-text;
+  &__bot-box,
+  &__top-box {
+    display: flex;
+    align-items: center;
+    height: 48%;
+  }
+  &__bot-box {
+    justify-content: space-between;
+  }
+  &__top-box {
+    justify-content: center;
+  }
+  &__btn {
+    width: 100%;
+    max-width: 45%;
+    height: 79%;
+    min-height: 0;
+    border: $border-btn;
+    border-radius: $radius-btn-alternate;
+    font-size: $font-size-big-btn;
+    &:nth-last-child(n+3) {
+      margin-right: 20px;
+    }
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      &:nth-last-child(n+3) {
+        margin-right: 5px;
+      }
+
+    }
+    color: $color-btn-text;
+    background-color: $color-background-btn;
+  }
+  &__btn-span {
+    &_pay,
+    &_trouble {
+      display: none;
+    }
+  }
+  &__btn.ready-payment .interaction__btn-span_pay{
+    display: inline;
+  }
+  &__btn.ready-payment .interaction__btn-span_nopay{
+    display: none;
+  }
+  &__btn.trouble {
+    background-color: $color-status-non-work;
+  }
+  &__btn.trouble .interaction__btn-span_pay{
+    display: none;
+  }
+  &__btn.trouble .interaction__btn-span_trouble{
+    display: inline;
+  }
+  &__clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 14px;
+    border: 2px solid $color-border-btn;
+    width: calc(100%/3 - 2%);
+    height: 80%;
+    color: $color-btn-text;
+    font-size: $font-size-big-btn;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+    background-color: $color-background-btn;
+    &-text {
+      width: 70%;
+      text-align: center;
+    }
+    path {
+      fill: $color-btn-text;
+    }
+  }
+  &__value-order {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px 5px;
+    width: calc(100%/3 - 1%);
+    height: 90%;
+    font-weight: 700;
+  }
+  &__value-info {
+    font-size: 1em;
+  }
+  &__cost-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 1.5em;
+  }
+  &__surrender {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px 5px;
+    width: calc(100%/3 - 1%);
+    height: 90%;
+    font-weight: 700;
+    font-size: 1em;
+  }
+  &__surrender-info {
+    &_value {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: 1.5em;
+    }
+  }
+
+}

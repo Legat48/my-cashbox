@@ -1,0 +1,11 @@
+@import '_mixin.scss';
+.catalog {
+  display: grid;
+  grid-template: repeat(16, 1fr) / 1fr;
+  &__category {
+    grid-row: 1 / 4;
+  }
+  &__content {
+    grid-row: 4 / 17;
+  }
+}

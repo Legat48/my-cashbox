@@ -1,0 +1,103 @@
+@import '_mixin.scss';
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius:$radius-btn-alternate;
+  background-color: $color-background-btn-alternate;
+  &_refund {
+    .counter {
+    &__btn  {
+      color: $color-btn-text;
+      height: 50px;
+      font-size: 20px;
+    }
+    &__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      color: $color-btn-text;
+      &:focus {
+        opacity: 1;
+        z-index: 3;
+      }
+      &:focus + .counter__input-display {
+        opacity: 0;
+      }
+    }
+    &__input-display {
+      color: $color-btn-text;
+    }
+  }}
+  &__btn {
+    padding-bottom: 3px;
+    border-radius: $radius-btn-alternate 0 0 $radius-btn-alternate;
+    width: calc(100%/3 + 3%);
+    height: 100%;
+    font-size: 18px;
+    width: calc(100% / 3);
+    min-height: 0;
+    color: $color-btn-text-alternate;
+    &_up {
+      border-radius: 0 $radius-btn-alternate $radius-btn-alternate 0;
+      padding-bottom: 0;
+    }
+  }
+  &__value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: calc(100%/3 - 6% );
+    border: none;
+    color: $color-btn-text-alternate;
+    background-color: $color-background-btn-alternate;
+    font-size: 18px;
+    width: calc(100% / 3);
+  }
+  &__input {
+    border: none;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    font-size: 18px;
+    color: $color-btn-text-alternate;
+    background-color: transparent;
+    text-align:center;
+  }
+  &__input-label {
+    position: relative;
+    border: none;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    color: $color-btn-text-alternate;
+    text-align:center;
+    background-color: transparent;
+    font-size: 18px;
+    width: calc(100% / 3);
+  }
+  &__input-display {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    font-size: 18px;
+    color: $color-btn-text-alternate;
+    text-align:center;
+    opacity: 1;
+    z-index: 1;
+  }
+}

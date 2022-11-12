@@ -1,0 +1,50 @@
+@import '_mixin.scss';
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 14px;
+  align-items: center;
+  color: $color-text;
+  background-color: $color-background;
+  font-size: $font-size-big-btn;
+  &__btn-name {
+    border: $border-btn;
+    border-radius: $radius-btn-alternate;
+    width: 43%;
+    height: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    color: $color-btn-text-alternate;
+    background-color: $color-background-btn-alternate;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+      overflow: hidden;
+    }
+  }
+  &__counter {
+    width: 27%;
+    height: 100%;
+    @media (max-width: 1024px) {
+      width: 100px;
+      min-height: 0;
+    }
+  }
+  &__text {
+    width: 13%;
+    text-align: center;
+    font-size: 24px;
+    &_sale {
+      color: red;
+    }
+  }
+}
+
+.product:nth-child(2n) {
+  background-color: $color-background-contrast;
+}

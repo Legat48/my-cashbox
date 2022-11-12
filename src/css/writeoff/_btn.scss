@@ -1,0 +1,124 @@
+@import '_mixin.scss';
+.btn {
+  position: relative;
+  border-color: transparent;
+  border-radius: $radius-big-btn;
+  outline: none;
+  font-size: 1em;
+  @media (min-width: 800px) {
+    min-height: 0;
+    font-size: 14px;
+  }
+  background-color: transparent;
+  min-height: $min-height;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.85);
+  }
+  @include transition;
+  &_nav {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    color: $color-btn-text-alternate;
+    opacity: $opacity-btn-nav;
+    background-color: $color-translucent-background-three;
+    cursor:pointer;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all $transition-base;
+    @include transition;
+    svg {
+      pointer-events: none;
+      & > path {
+        fill: $color-background-btn-alternate;
+        stroke: transparent;
+      }
+      & > path + path {
+        fill: $color-btn-text-alternate;
+        stroke: transparent;
+      }
+    }
+    &-right {
+      svg {
+        transform: rotate(+90deg);
+      }
+    }
+    &-left {
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+    &-up {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  &_navbar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'MyriadPro', sans-serif;
+    font-size: 16px;
+    border-radius: $radius-big-btn;
+    color: $color-btn-text-alternate;
+    background-color:$color-background-btn-alternate;
+    font-weight: 600;
+    padding: 10px;
+    padding-top: 15px;
+    width: 225px;
+    min-height: 0;
+    border-radius: $radius-big-btn;
+    font-size: 16px;
+    &:not(:last-child) {
+      margin-right: 25px;
+    }
+    &:disabled {
+      opacity: 0.7;
+    }
+    @media (max-width: 1024px) {
+      width: 190px;
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+div .btn_hover:active {
+  @include transition;
+  color: $color-text-btn-active;
+  background-color: $color-background-btn-active;
+}
+
+div .btn_hover-alternate:active {
+  color: $color-text-btn-active-alternate;
+  background-color: $color-background-btn-active;
+}
+
+div .btn_disabled,
+div .btn_disabled:active {
+  border-color: transparent;
+  background-color: $color-background-btn-alternate;
+  opacity: 0.4;
+  cursor: auto;
+}
+div .btn_disabled-full-opacity,
+div .btn_disabled-full-opacity:active {
+  opacity: 0;
+}
+div .btn_disabled_alternate,
+div .btn_disabled_alternate:active {
+  border-color: transparent;
+  background-color: $color-background-btn;
+  opacity: 1;
+  cursor: auto;
+}

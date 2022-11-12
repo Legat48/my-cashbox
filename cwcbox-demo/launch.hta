@@ -1,0 +1,40 @@
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>CW Launcher</title>
+  <hta:application
+    Id = "oHTA"
+    ApplicationName = "MyTestApplication"
+    Icon = "launcherCW.ico"
+    InnerBorder = "No"
+    Scroll = "No"
+    Selection = "No"
+    SingleInstance = "Yes"
+    Version = "1.1"
+    />
+  </head>
+  <script type="text/javascript" src="./js./jsonLb.js"></script>
+  <script type="text/javascript" src="./js./logger.js"></script>
+  <script type="text/javascript" src="./js./aamupdater.js"></script>
+  <body style='width:100%;color:#eee;background:#222;padding:25px;'>
+    <main>
+    <h1 id='title' style='width:100%;color:#eee;background:#222;padding:25px;'>
+
+    </h1>
+    <div id='myLog' style='display:flex;overflow:auto;height:80%;color:#eee;background:#222;padding:12px;'>
+    </div>
+    </main>
+    <script type="text/javascript">
+	var fso = new ActiveXObject('Scripting.FileSystemObject');
+	var currentDirectory=fso.GetAbsolutePathName(".");
+	var oShApp = new ActiveXObject('Shell.Application');
+	if(fso.FileExists("./terminal.hta")){
+		oShApp.shellExecute ("terminal.hta", "", currentDirectory, "open", 1);
+	}
+      if (typeof title != 'undefined') {
+        title.innerHTML += "Для перезапуска терминала закройте приложение";
+      }
+    </script>
+    </body>
+</html>
+

@@ -1,0 +1,85 @@
+@import '_mixin.scss';
+.receipt {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-right: 2px;
+  color: $color-text;
+  background-color: $color-background;
+  &__category-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    width: 100%;
+    height: 45px;
+    border-radius: $radius-big-btn;
+  }
+  &__category {
+    text-align: center;
+    &_one {
+      width: 45%;
+    }
+    &_two {
+      width: 24%;
+    }
+    &_three {
+      width: 14%;
+    }
+    &_four {
+      width: 13%;
+    }
+  }
+  &__goods {
+    position: relative;
+    height: 100%;
+    border-radius: $radius-btn-alternate;
+  }
+  &__goods-btn {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 78px;
+    border-radius: $radius-btn-alternate;
+    transition: all $transition-base;
+    &:active {
+      opacity: 0.7;
+      transform: scale(0.85);
+    }
+    &_next {
+      top: auto;
+      bottom: 0;
+    }
+  }
+  &__wrap {
+    height: 100%;
+  }
+  &__list {
+    height: 100%;
+    width: 100%;
+  }
+  &__item {
+    height: calc(512px/4.5 - 10px);
+    border-radius: $radius-big-btn;
+    min-height: 0;
+    font-size: 18px;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+      height: calc(375px/4.5 - 10px);
+    }
+    @media (min-width: 1025px) {
+      font-size: 18px;
+      height: calc(425px/4.5 - 10px);
+    }
+  }
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &__interaction {
+    height: calc(200/585*100%);
+    max-height: 276px;
+    flex-shrink: 0;
+  }
+}

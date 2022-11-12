@@ -1,0 +1,44 @@
+@import '_mixin.scss';
+
+.allCategory {
+  overflow: auto;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 2px 20px 40px;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+  }
+  &__item {
+    flex-shrink: 0;
+    margin: 0 15px 20px 0;
+    border-radius: $radius-big-btn;
+    width: calc(100%/4 - 20px);
+    height: calc(100%/5 - 20px);
+    overflow: hidden;
+    padding: 5px;
+    border: 2px solid transparent;
+    font-size: 20px;
+    border-radius: $radius-big-btn;
+    color: $color-btn-text-alternate;
+    background-color: $color-background-btn-alternate;
+    @media (max-width: 1439px) {
+      font-size: 14px;
+      width: calc(100%/4 - 20px);
+      height: calc(100%/4 - 20px);
+    }
+  }
+  .menu__version {
+    display: none;
+  }
+  .menu__info {
+    display: none;
+  }
+  .menu__btn-box {
+    display: none;
+  }
+  .menu__status-box {
+    display: none;
+  }
+}

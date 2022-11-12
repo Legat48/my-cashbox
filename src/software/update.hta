@@ -1,0 +1,54 @@
+<!-- saved from url=(0014)about:internet -->
+<html><head>
+	<hta:application id="hta_id"
+	applicationName="UPDATE"
+	application="yes"
+	ICON="main.ico"
+	showInTaskBar="yes"
+	SINGLEINSTANCE="yes"
+	caption="yes"
+	maximizeButton="no"
+	minimizeButton="no"
+	innerBorder="no"
+	selection="no"
+	scroll="no"
+	contextmenu="no"
+	SYSMENU="no"
+	VERSION="1.0"
+	windowstate="minimize" />
+
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+
+
+	<!--<script src='js/jquery-1.4.3.min.js'></script>-->
+	<script src='./js/logger.js'></script>
+	<script src='./mupdater.js'></script>
+
+	<script language=javascript>
+
+	var winWidth=screen.width;//1024; // ширина окна
+	var winHeight=screen.height;//768; // высота окна
+	var devID = "";
+	var online = "NO";
+
+	// изменяем размер
+	//window.resizeTo(winWidth, winHeight);
+
+	// окно в центр экрана
+	var winPosX=screen.width/2-winWidth/2;
+	var winPosY=screen.height/2-winHeight/2;
+	window.moveTo(winPosX, winPosY);
+
+	var dataAPI = "";
+	var fso = new ActiveXObject('Scripting.FileSystemObject');
+	var currentDirectory=fso.GetAbsolutePathName(".");
+
+	</script>
+
+	</head>
+
+	<body bgcolor="#111" text=buttontext style="font: 8pt 'Arial';"><!-- buttonface -->
+	<div id='myLog' style='width:100%;height:90vh;ovrflow-y:auto;color:#eee;background:#222;padding:12px;'>
+	</div>
+	</body></html>

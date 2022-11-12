@@ -1,0 +1,141 @@
+@import '_mixin.scss';
+
+.setting {
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
+  .setting__box {
+    display: flex;
+  }
+  &__box {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    @media (max-width: 800px) {
+      padding: 10px;
+    }
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: calc(50% - 10px);
+    height: 100%;
+    border-radius: $radius-big-btn;
+    color: $color-text-alternate;
+    background-color: $color-translucent-background;
+    @media (max-width: 800px) {
+      padding: 15px;
+    }
+  }
+  &__title {
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    color: $color-text-alternate;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(130/1080*100%);
+    border-radius: $radius-big-btn;
+    color: $color-text-alternate;
+    background-color: $color-background-btn-alternate;
+    transition: background-color .3s ease;
+    &_select {
+      padding: 10px 40px;
+      @media (max-width: 1280px) {
+        padding: 10px 20px;
+      }
+    }
+    &_active-mail {
+      background-color: transparent;
+      .setting__btn {
+        display: none;
+      }
+      .setting__label {
+        display: flex;
+      }
+    }
+  }
+  &__item-title {
+    margin-right: 15px;
+  }
+  &__select-box {
+    width: 25%;
+    min-width: 150px;
+    height: 70%;
+    @media (max-width: 1280px) {
+      min-width: 125px
+    }
+  }
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  &__btn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: $color-text-alternate;
+  }
+  &__btn-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    max-width: calc(100% - 50px);
+    .toggle {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  &__label {
+    display: none;
+    width: 90%;
+    height: 90%;
+    font-size: 1em;
+  }
+  &__input {
+    padding: 7px 12px 7px 15px;
+    border: 3px solid $color-border-alternate;
+    border-right: 0px;
+    width: 80%;
+    height: 100%;
+    border-radius: $radius-btn 0 0 $radius-btn;
+    color: $color-text;
+    background-color: $color-background;
+  }
+  &__input-btn {
+    padding: 2%;
+    width: 20%;
+    height: 100%;
+    border: 3px solid $color-border-alternate;
+    border-left: 0px;
+    border-radius: 0 $radius-btn $radius-btn 0;
+    background-color: $color-background-btn-alternate;
+    path {
+      fill: $color-btn-text-alternate;
+    }
+  }
+
+  .menu__version {
+    display: none;
+  }
+  .menu__info {
+    display: none;
+  }
+  .menu__btn-box {
+    display: none;
+  }
+  .menu__status-box {
+    display: none;
+  }
+}

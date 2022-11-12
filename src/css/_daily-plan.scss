@@ -1,0 +1,41 @@
+.daily-plan {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+  }
+  &__title {
+    padding-top: 10px;
+    padding: 0;
+    margin: 0;
+  }
+  &__field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 500px;
+    height: 100%;
+    background-color: $color-translucent-background;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &__filler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color-background-btn;
+    width: 0%;
+    height: 100%;
+  }
+  &__display {
+    color: $color-btn-text-alternate;
+    font-size: 20px;
+    height: 100%;
+  }
+}
