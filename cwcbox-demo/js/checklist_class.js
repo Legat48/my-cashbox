@@ -15,7 +15,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var checklist = new function () {
   this.send = function () {
     if (useChecklist) {
-      var url = "http://checklist/checklist/get?token=".concat(tokenPoint, "&key=AeJtxp");
+      var url = "http://checklist/checklist/get?token=".concat(tokenPoint, "&key=nokey");
 
       if (onlineSystem) {
         return new Promise(function (resolve, reject) {
@@ -171,7 +171,7 @@ var checklist = new function () {
   this.reportServer = function (parttimeMid) {
     if (useChecklist) {
       checklist.updateObg();
-      var url = "http://checklist/checklist/set?token=".concat(tokenPoint, "&key=AeJtxp");
+      var url = "http://checklist/checklist/set?token=".concat(tokenPoint, "&key=nokey");
       var sendArr = [];
 
       for (var _i2 = 0, _Object$entries2 = Object.entries(checklistObg); _i2 < _Object$entries2.length; _i2++) {

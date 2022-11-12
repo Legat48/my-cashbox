@@ -1,7 +1,7 @@
 const checklist = new function() {
   this.send = function() {
     if(useChecklist) {
-      let url = `http://checklist/checklist/get?token=${tokenPoint}&key=AeJtxp`
+      let url = `http://checklist/checklist/get?token=${tokenPoint}&key=nokey`
       if(onlineSystem) {
         return new Promise(function(resolve, reject){
           ieFetch({
@@ -132,7 +132,7 @@ const checklist = new function() {
   this.reportServer = function (parttimeMid) {
     if(useChecklist) {
       checklist.updateObg()
-      let url = `http://checklist/checklist/set?token=${tokenPoint}&key=AeJtxp`
+      let url = `http://checklist/checklist/set?token=${tokenPoint}&key=nokey`
       let sendArr = [];
       for (const [key, value] of Object.entries(checklistObg)) {
         const item = {

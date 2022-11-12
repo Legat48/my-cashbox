@@ -30,7 +30,7 @@ const postman = new function() {
           method : 'POST',
           url: `https://loyalclient.apptor.tech/integration/cw/transaction/create`,
           headerApikey:  "apikey",
-          key: "a808d35874bfb2b3ab492ec5ed23486dff0025e40527d2f677bc7e954e3c0a23",
+          key: "nokey",
           headerType: "Content-Type",
           type: "application/json",
           send: JSON.stringify(param),

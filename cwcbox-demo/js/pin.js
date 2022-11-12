@@ -94,7 +94,7 @@ function pinManual() {
         reloadMenu.style.display = 'block';
       }
 
-      var url = "http://bridge.cwsystem.ru/engine/?class=API&method=getkeyfororder&key=FagoE956Ji9546&p=".concat(pointCashbox); // ключ для заказа поставки
+      var url = "http://bridge.cwsystem.ru/engine/?class=API&method=getkeyfororder&key=nokey&p=".concat(pointCashbox); // ключ для заказа поставки
 
       ieFetch({
         method: 'POST',

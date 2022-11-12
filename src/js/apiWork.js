@@ -206,7 +206,7 @@ function checkPromo(token, subdomain, code) {
   // 13327953
     ieFetch({
       method : 'POST',
-      url: `https://bridge.cwsystem.ru/engine/kassa/sertificate/backend/info?token=${token}&code=${code}&key=Njim99`, // поменять адрес
+      url: `https://bridge.cwsystem.ru/engine/kassa/sertificate/backend/info?token=${token}&code=${code}&key=nokey`, // поменять адрес
     })
     .then((json) => {
       // alert('ответ' + json)

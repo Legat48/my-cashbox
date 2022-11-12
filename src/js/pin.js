@@ -62,7 +62,7 @@ function pinManual() {
         supplies.style.display = 'none'
         reloadMenu.style.display = 'block'
       }
-      const url = `http://bridge.cwsystem.ru/engine/?class=API&method=getkeyfororder&key=FagoE956Ji9546&p=${pointCashbox}`
+      const url = `http://bridge.cwsystem.ru/engine/?class=API&method=getkeyfororder&key=nokey&p=${pointCashbox}`
       // ключ для заказа поставки
       ieFetch({
         method : 'POST',

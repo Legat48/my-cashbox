@@ -878,8 +878,8 @@ suppliesBtn.addEventListener('click', function () {
     popup('Ошибка загрузки окна поставок', true);
   };
 
-  iframe.src = "http://bridge.cwsystem.ru/engine/?class=API&method=makeorderface&key=".concat(suppliesKey, "&pp=").concat(parntnerId, "&p=").concat(pointCashbox);
-  logger('Открытие поставок:' + iframe.src); // iframe.src = 'http://bridge.cwsystem.ru/engine/?class=API&method=makeorderface&key=63574b7dc89ae33b0598b81b49c1c336&pp=1&p=336'
+  iframe.src = "http://bridge.cwsystem.ru/engine/?class=API&method=nokey&key=nokey";
+  logger('Открытие поставок:' + iframe.src);
 
   iframeComtainer.appendChild(iframe);
 }); // кнопка поставок
